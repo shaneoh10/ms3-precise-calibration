@@ -61,3 +61,7 @@ I have structured the website with:
 - Landing Page, Register and Log In pages accessible by all users of the website
 - Calibrations Due and Calibrations Sign Off pages accessible by all logged in employees
 - Add, Edit and Completed Calibrations pages accessible by employees with supervisor access
+
+### Skeleton 
+
+I designed wireframes for desktop, tablet and mobile using Balsamiq. These wireframes can be viewed [here](#)
