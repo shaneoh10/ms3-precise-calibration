@@ -1,59 +1,41 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Website for Precise Calibration
 
-Welcome USER_NAME,
+## Code Institute Milestone Project 3 : Data Centric Development
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+Precise Calibration is a fictional company that provides calibration services for process instrumentation equipment. 
+Some examples of this equipment would be pressure or temperature sensors in a pharmaceutical plant or oil refinery 
+that require regular routine calibration for reasons of regulatory compliance. The website will feature a landing page
+with information about the company and its services with the goal of acquiring new customers. It will also contain a 
+secure application for employees where they will be able to log in and keep track of work that is due for completion
+to ensure jobs are completed on time. This application will allow employees to make use of a database and CRUD operations 
+to keep the calibration management system up to date.
 
-## Gitpod Reminders
+A link to the live website can be found [here.](#)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Table of Contents
 
-`python3 -m http.server`
+- [User Experience (UX)](#ux)
 
-A blue button should appear to click: _Make Public_,
+## UX
 
-Another blue button should appear to click: _Open Browser_.
+### Strategy
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The website for precise calibration will be designed with two sets of users in mind. First there are the potential customers of the
+services that precise calibration have to offer. These potential customers will be interested in viewing what services can be 
+provided and how it may benefit them from a business perspective. Potential customers may be owners of a small business or they
+may be managers or supervisors in a larger business that requires regular routine instrument calibration services. The landing 
+page be easy to navigate and will have a professional feel to it with all information clearly presented so as not to cause any
+confusion to potential customers.
 
-A blue button should appear to click: _Make Public_,
+The other set of users are the employees of precise calibration. Each employee will register their own personal login credentials
+to gain access to the calibration management application on the website. The purpose of this application is to reduce time filling
+out paperwork and sending emails as all information will be automatically updated to the database where a supervisor will be able 
+to view the completed work and close out tasks. This application will contain a list of all instruments that are due for calibration
+and some information regarding the instrument (due date, tag id, location, instrument type). When an instrument has been calibrated
+employees will be able to mark the job as complete and if it has passed or failed and this information is then updated on the 
+database. All information regarding instruments (due-date, location, tag-id etc.) needs to be clearly displayed and all buttons for
+CRUD functionality will need to be clearly labelled. At no point when using the application should employees feel confused or lost
+as this could lead to user input errors which would affect the efficiency of the application. 
 
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+The website will be designed for both mobile and desktop but will be targeted more towards desktop / laptop users as they are the
+norm in a professional setting and it is much easier to read and input information on a larger screen.
