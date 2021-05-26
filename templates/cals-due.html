@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Precise Calibration</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+
     <ul>
         {% for cal_due in cals_due %}
             <li>{{ cal_due.tag_id }}</li>
@@ -13,6 +8,6 @@
             <li>{{ cal_due.location }}</li>
             <li>{{ cal_due.due_date }}</li>
         {% endfor %}
-    </ul>  
-</body>
-</html>
+    </ul>
+
+{% endblock %}
