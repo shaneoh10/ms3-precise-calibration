@@ -64,4 +64,4 @@ I have structured the website with:
 
 ### Skeleton 
 
-I designed wireframes for desktop, tablet and mobile using Balsamiq. These wireframes can be viewed [here](#)
+I designed wireframes for desktop, tablet and mobile using Balsamiq. These wireframes can be viewed [here.](https://github.com/shaneoh10/precise-calibration-ms3/tree/master/assets/wireframes)
