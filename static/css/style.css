@@ -2,6 +2,7 @@ html,
 body {
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /************ HOME PAGE  */
@@ -12,17 +13,36 @@ body {
     background-size: cover;
 }
 
- .opaque-cover {
-     height: 100%;
-     width: 100%;
-     background-color: rgba(0, 0, 0, 0.3);
-}
-
 #about {
-    height: 50vh;
+    height: auto;
 }
 
 #contact {
     height: 50vh;
     background-color: #dbdbdb;
 }
+
+.opaque-cover {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.hero-text-container {
+    margin: 0 auto;
+}
+
+.hero-text-container h1 {
+    margin-top: 0;
+}
+
+.buttons a {
+    margin: 2rem;
+    width: 10rem;
+}
+
+.about-text {
+    font-size: 2rem;
+}
+
+
