@@ -18,7 +18,7 @@ body {
 }
 
 #contact {
-    height: 50vh;
+    height: auto;
     background-color: #dbdbdb;
 }
 
@@ -43,6 +43,14 @@ body {
 
 .about-text {
     font-size: 2rem;
+}
+
+.about-card {
+    margin: 2rem;
+}
+
+.image-cards {
+    padding: 2rem;
 }
 
 
