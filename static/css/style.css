@@ -1,11 +1,27 @@
 html,
 body {
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/************ BASE PAGE  */
+.nav-logo {
+    margin-left: 1.4rem;
+}
+
+
+
 /************ HOME PAGE  */
+
+#about h2,
+#contact h2 {
+    font-size: 3rem;
+    margin-top: 0;
+    padding-top: 2rem;
+}
 
 #home {
     height: 100vh;
@@ -15,17 +31,33 @@ body {
 
 #about {
     height: auto;
+    background-color: #F8F9FA;
+    padding-bottom: 2rem;
 }
 
 #contact {
     height: auto;
-    background-color: #dbdbdb;
+    background-color: #E9ECEF;
+    padding-bottom: 3rem;
+}
+
+footer {
+    color: #ADB5BD;
+    background-color: #343A40;
+    padding: 1rem;
 }
 
 .opaque-cover {
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+hr {
+    width: 6rem;
+    height: 0.1rem;
+    margin-bottom: 1.4rem;
+    background-color: #343A40;
 }
 
 .hero-text-container {
@@ -37,12 +69,22 @@ body {
 }
 
 .buttons a {
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #F8F9FA;
     margin: 2rem;
     width: 10rem;
 }
 
+.buttons a:hover,
+.buttons a:active {
+    color: #343A40;
+    font-size: 1.1rem;
+    background-color: #ADB5BD;
+}
+
 .about-text {
-    font-size: 2rem;
+    font-size: 1.6rem;
 }
 
 .about-card {
@@ -51,6 +93,30 @@ body {
 
 .image-cards {
     padding: 2rem;
+    margin-bottom: 0;
 }
 
+#contact p {
+    font-size: 1.8rem;
+}
 
+.contact-card {
+    margin: 1rem;
+    background-color: #F8F9FA;
+}
+
+.contact-card li {
+    margin: 0.8rem;
+}
+
+footer a {
+    font-size: 2rem;
+    margin: 1rem 2rem;
+    color: #ADB5BD;
+    transition: 0.5s;
+}
+
+footer a:hover,
+footer a:active {
+    color: #F8F9FA;
+}
