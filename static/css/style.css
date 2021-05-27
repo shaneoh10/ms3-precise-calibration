@@ -8,7 +8,8 @@ body {
     font-family: 'Fira Sans Condensed', sans-serif;
 }
 
-/************ BASE PAGE  */
+/********************** BASE TEMPLATE  */
+
 .nav-logo {
     margin-left: 1.4rem;
     font-family: 'Titillium Web', sans-serif;
@@ -25,6 +26,7 @@ nav {
 #mobile-demo {
     background-color: #343A40;
     color: #fff;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 #mobile-demo a {
@@ -33,7 +35,7 @@ nav {
 
 
 
-/************ HOME PAGE  */
+/********************** HOME PAGE  */
 
 #about h2,
 #contact h2 {
@@ -56,8 +58,9 @@ nav {
 
 #contact {
     height: auto;
-    background-color: rgb(239, 243, 247);
-    padding-bottom: 3rem;
+    color: #F8F9FA;
+    background: url('https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center fixed;
+    background-size: cover;
 }
 
 footer {
@@ -69,7 +72,7 @@ footer {
 .opaque-cover {
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 hr {
@@ -125,16 +128,32 @@ hr {
     margin: 2rem auto;
 }
 
+#contact h2 {
+    color: #F8F9FA;
+}
+
+#contact hr {
+    background-color: #F8F9FA;
+}
+
 .contact-card {
     margin: 1.6rem;
     color: #343A40;
-    background-color: #F8F9FA;
+    background-color: #E9ECEF;
 }
 
 .contact-card li {
     color: #495057;
     font-size: 1.2rem;
     margin: 0.8rem;
+}
+
+.contact-card-row {
+    margin-bottom: 0;
+}
+
+.contact-col {
+    margin-bottom: 3rem;
 }
 
 footer a {
@@ -148,3 +167,16 @@ footer a:hover,
 footer a:active {
     color: #F8F9FA;
 }
+
+/********************** MEDIA QUERIES  */
+
+ @media screen and (max-width: 600px) {
+     .about-card {
+         width: 90%;
+         margin: 1.6rem 1rem;
+     }
+     footer a {
+         font-size: 1.8rem;
+         margin: 1rem 1.2rem;
+     }
+ }
