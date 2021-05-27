@@ -2,6 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    background-color: #F8F9FA;
     overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: Arial, Helvetica, sans-serif;
@@ -10,6 +11,10 @@ body {
 /************ BASE PAGE  */
 .nav-logo {
     margin-left: 1.4rem;
+}
+
+nav {
+    background-color: #343A40;
 }
 
 
@@ -31,7 +36,6 @@ body {
 
 #about {
     height: auto;
-    background-color: #F8F9FA;
     padding-bottom: 2rem;
 }
 
@@ -66,6 +70,11 @@ hr {
 
 .hero-text-container h1 {
     margin-top: 0;
+}
+
+.hero-p {
+    color: rgba(233, 236, 239, 0.938);
+    font-size: 2.2rem;
 }
 
 .buttons a {
