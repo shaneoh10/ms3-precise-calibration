@@ -5,16 +5,30 @@ body {
     background-color: #F8F9FA;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Fira Sans Condensed', sans-serif;
 }
 
 /************ BASE PAGE  */
 .nav-logo {
     margin-left: 1.4rem;
+    font-family: 'Titillium Web', sans-serif;
 }
 
 nav {
     background-color: #343A40;
+}
+
+#calibration {
+    color: rgba(182, 192, 201, 0.932);
+}
+
+#mobile-demo {
+    background-color: #343A40;
+    color: #fff;
+}
+
+#mobile-demo a {
+    color: #E9ECEF;
 }
 
 
@@ -23,6 +37,7 @@ nav {
 
 #about h2,
 #contact h2 {
+    color: #495057;
     font-size: 3rem;
     margin-top: 0;
     padding-top: 2rem;
@@ -41,7 +56,7 @@ nav {
 
 #contact {
     height: auto;
-    background-color: #E9ECEF;
+    background-color: rgb(239, 243, 247);
     padding-bottom: 3rem;
 }
 
@@ -61,7 +76,7 @@ hr {
     width: 6rem;
     height: 0.1rem;
     margin-bottom: 1.4rem;
-    background-color: #343A40;
+    background-color: #495057;
 }
 
 .hero-text-container {
@@ -74,7 +89,7 @@ hr {
 
 .hero-p {
     color: rgba(233, 236, 239, 0.938);
-    font-size: 2.2rem;
+    font-size: 1.8rem;
 }
 
 .buttons a {
@@ -93,7 +108,7 @@ hr {
 }
 
 .about-text {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 .about-card {
@@ -106,15 +121,19 @@ hr {
 }
 
 #contact p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    margin: 2rem auto;
 }
 
 .contact-card {
-    margin: 1rem;
+    margin: 1.6rem;
+    color: #343A40;
     background-color: #F8F9FA;
 }
 
 .contact-card li {
+    color: #495057;
+    font-size: 1.2rem;
     margin: 0.8rem;
 }
 
