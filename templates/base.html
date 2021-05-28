@@ -29,7 +29,8 @@
         <!-- Main Navbar  -->
         <nav id="navbar">
             <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo nav-logo left">Precise<span id="calibration">Calibration</span></a>
+                <a href="{{ url_for('home') }}" class="brand-logo nav-logo left">Precise<span
+                        id="calibration">Calibration</span></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -61,6 +62,19 @@
             <li><a href="#">Log Out</a></li>
         </ul>
     </header>
+
+    <!-- Flash Messages https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
+    <section id="flashed-messages">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row flashes center-align">
+                        <p class="green lighten-4 flash-message">{{ message }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </section>
 
     {% block content %}
     {% endblock %}

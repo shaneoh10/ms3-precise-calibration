@@ -44,13 +44,6 @@ footer {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-hr {
-    width: 6rem;
-    height: 0.1rem;
-    margin-bottom: 1.4rem;
-    background-color: #495057;
-}
-
 .hero-text-container {
     margin: 0 auto;
 }

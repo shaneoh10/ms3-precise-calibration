@@ -34,12 +34,26 @@ nav {
     color: #E9ECEF;
 }
 
+hr {
+    width: 6rem;
+    height: 0.1rem;
+    margin-bottom: 1.4rem;
+    background-color: #495057;
+}
+
+.flashes {
+    text-transform: uppercase;
+    margin-top: 3rem;
+    font-size: 2.2rem;
+}
+
 
 /********************** MEDIA QUERIES  */
 
- @media screen and (max-width: 600px) {
-     
+@media screen and (max-width: 600px) {
+
     .nav-logo {
-         margin-left: 0.4rem;
-     }
- }
+        margin-left: 0.4rem;
+    }
+
+}
