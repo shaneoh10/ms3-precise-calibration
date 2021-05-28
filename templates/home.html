@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     {% block styles %}
-        <script src="https://unpkg.com/scrollreveal"></script>
+        <!-- Local CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}" type="text/css">
     {% endblock %}
 
 
@@ -30,7 +31,9 @@
                 <br>
                 <br>
                 We are ISO Quality assured to the latest standard and NSAI Certified.
+            </p>
         </div>
+        <!-- Image Cards From https://materializecss.com/cards.html -->
         <div class="row image-cards">
             <div class="col s12 m6 l4">
                 <div class="card about-card">
@@ -70,7 +73,7 @@
             </div>
         </div>
     </section>
-
+    <!-- Contact Cards From https://materializecss.com/cards.html -->
     <section id="contact">
         <div class="opaque-cover">
             <h2 class="center">Contact Us</h2>
@@ -109,10 +112,7 @@
         </div>
     </section>
 
-
-
-
-
+    <!-- Footer from https://materializecss.com/footer.html -->
     <footer class="footer-copyright center">
         <div class="container">
             <div class="row">
@@ -127,6 +127,9 @@
         </div>
     </footer>
     {% block scripts %}
+        <!-- Scroll reveal CDN  -->
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <!-- Local JS script  -->
         <script src="{{ url_for('static', filename='js/homepage.js') }}"></script>
     {% endblock %}
 

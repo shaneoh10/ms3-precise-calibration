@@ -1,0 +1,158 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: 0.3s;
+    z-index: 20;
+}
+
+#about h2,
+#contact h2 {
+    color: #495057;
+    font-size: 3rem;
+    margin-top: 0;
+    padding-top: 2rem;
+}
+
+#home {
+    height: 100vh;
+    background: url('../images/main.jpg') no-repeat bottom fixed;
+    background-size: cover;
+}
+
+#about {
+    height: auto;
+    padding-bottom: 2rem;
+}
+
+#contact {
+    height: auto;
+    color: #F8F9FA;
+    background: url('../images/contact.jpg') no-repeat center fixed;
+    background-size: cover;
+}
+
+footer {
+    color: #ADB5BD;
+    background-color: #343A40;
+    padding: 1rem;
+}
+
+.opaque-cover {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+hr {
+    width: 6rem;
+    height: 0.1rem;
+    margin-bottom: 1.4rem;
+    background-color: #495057;
+}
+
+.hero-text-container {
+    margin: 0 auto;
+}
+
+.hero-text-container h1 {
+    margin-top: 0;
+}
+
+.hero-p {
+    color: rgba(233, 236, 239, 0.938);
+    font-size: 1.8rem;
+}
+
+.buttons a {
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid #F8F9FA;
+    margin: 2rem;
+    width: 10rem;
+}
+
+.buttons a:hover,
+.buttons a:active {
+    color: #343A40;
+    font-size: 1.1rem;
+    background-color: #ADB5BD;
+}
+
+.about-text {
+    font-size: 1.4rem;
+}
+
+.about-card {
+    margin: 2rem;
+}
+
+.image-cards {
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+#contact p {
+    font-size: 1.6rem;
+    margin: 2rem auto;
+}
+
+#contact h2 {
+    color: #F8F9FA;
+}
+
+#contact hr {
+    background-color: #F8F9FA;
+}
+
+#contact .opaque-cover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.contact-card {
+    margin: 1.6rem;
+    color: #343A40;
+    background-color: #E9ECEF;
+}
+
+.contact-card li {
+    color: #495057;
+    font-size: 1.2rem;
+    margin: 0.8rem;
+}
+
+.contact-card-row {
+    margin-bottom: 0;
+}
+
+.contact-col {
+    margin-bottom: 3rem;
+}
+
+footer a {
+    font-size: 2rem;
+    margin: 1rem 2rem;
+    color: #ADB5BD;
+    transition: 0.5s;
+}
+
+footer a:hover,
+footer a:active {
+    color: #F8F9FA;
+}
+
+/********************** MEDIA QUERIES  */
+
+@media screen and (max-width: 600px) {
+
+    .about-card {
+        width: 90%;
+        margin: 1.6rem 1rem;
+    }
+
+    footer a {
+        font-size: 1.8rem;
+        margin: 1rem 1.2rem;
+    }
+
+}
