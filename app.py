@@ -46,6 +46,17 @@ def new_cal():
 
 @app.route("/edit_cal/<cal_due_id>", methods=["GET", "POST"])
 def edit_cal(cal_due_id):
+    if request.method == "POST":
+        cal = {
+            "tag_id": request.form.get("tag_id"),
+            "inst_type": request.form.get("inst_type"),
+            "location": request.form.get("location"),
+            "due_date": request.form.get("due_date")
+        }
+        mongo.db.cals_due.update({"_id": ObjectId(cal_due_id)}, cal)
+        flash("Calibration Updated")
+        return redirect(url_for("get_cals_due"))
+
     cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
     return render_template("edit-cal.html", cal_due=cal_due)
 

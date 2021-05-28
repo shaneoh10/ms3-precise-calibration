@@ -10,7 +10,8 @@
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="tag_id" type="text" name="tag_id" class="validate" minlength="5" maxlength="12" required>
+                        <input id="tag_id" type="text" name="tag_id" class="validate" minlength="5" maxlength="12"
+                            value="{{ cal_due.tag_id }}" required>
                         <label for="tag_id">Instrument Tag ID:</label>
                     </div>
                 </div>
@@ -18,7 +19,10 @@
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
                         <select id="inst_type" type="text" name="inst_type" class="validate" required>
-                            <option value="" disabled selected>Choose instrument type</option>
+                            {% if cal_due.inst_type %}
+                                <option value="{{ cal_due.inst_type}}" selected>{{ cal_due.inst_type }}</option>
+                            {% endif %}
+                            <option value="" disabled>Choose instrument type</option>
                             <option value="Analyser">Analyser</option>
                             <option value="Flow Transmitter">Flow Transmitter</option>
                             <option value="Level Transmitter">Level Transmitter</option>
@@ -31,13 +35,14 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="location" type="text" name="location" class="validate" minlength="5" maxlength="80"
-                            required>
+                            value="{{ cal_due.location }}" required>
                         <label for="location">Location:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="due_date" type="text" name="due_date" class="datepicker validate" required>
+                        <input id="due_date" type="text" name="due_date" class="datepicker validate"
+                            value="{{ cal_due.due_date }}" required>
                         <label for="due_date">Due Date:</label>
                     </div>
                 </div>
@@ -46,7 +51,7 @@
                         <button type="submit" class="btn-large">Update</button>
                     </div>
                     <div class="col s12 m4 center">
-                        <button type="" class="btn-large red">Cancel</button>
+                        <a href="{{ url_for('get_cals_due') }}" class="btn-large red">Cancel</a>
                     </div>
                 </div>
             </form>
