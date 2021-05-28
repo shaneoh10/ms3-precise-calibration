@@ -40,8 +40,14 @@ def new_cal():
         mongo.db.cals_due.insert_one(cal)
         flash("New Calibration Added")
         return redirect(url_for("get_cals_due"))
-        
+
     return render_template("new-cal.html")
+
+
+@app.route("/edit_cal/<cal_due_id>", methods=["GET", "POST"])
+def edit_cal(cal_due_id):
+    cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
+    return render_template("edit-cal.html", cal_due=cal_due)
 
 
 if __name__ == "__main__":

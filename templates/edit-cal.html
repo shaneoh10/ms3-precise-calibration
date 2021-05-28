@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h2 class="center">New Calibration</h2>
+    <h2 class="center">Edit Calbration</h2>
     <hr>
 
     <div class="container">
         <!-- Form Structure from https://materializecss.com/text-inputs.html -->
         <div class="row card-panel">
-            <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('new_cal') }}">
+            <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="tag_id" type="text" name="tag_id" class="validate" minlength="5" maxlength="12" required>
@@ -43,10 +43,10 @@
                 </div>
                 <div class="row">
                     <div class="col s12 m4 offset-m2 center">
-                        <button type="submit" class="btn-large">Add Instrument</button>
+                        <button type="submit" class="btn-large">Update</button>
                     </div>
                     <div class="col s12 m4 center">
-                        <button type="submit" class="btn-large red">Cancel</button>
+                        <button type="" class="btn-large red">Cancel</button>
                     </div>
                 </div>
             </form>
