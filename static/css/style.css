@@ -56,7 +56,7 @@ nav {
 
 #home {
     height: 100vh;
-    background: url('https://images.unsplash.com/photo-1602056820935-316884c035f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80') no-repeat bottom fixed;
+    background: url('../images/main.jpg') no-repeat bottom fixed;
     background-size: cover;
 }
 
@@ -68,7 +68,7 @@ nav {
 #contact {
     height: auto;
     color: #F8F9FA;
-    background: url('https://images.unsplash.com/photo-1513828742140-ccaa28f3eda0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center fixed;
+    background: url('../images/contact.jpg') no-repeat center fixed;
     background-size: cover;
 }
 
