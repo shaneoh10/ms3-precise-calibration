@@ -28,6 +28,11 @@ def get_cals_due():
     return render_template("cals-due.html", cals_due=cals_due)
 
 
+@app.route("/new_cal")
+def new_cal():
+    return render_template("new-cal.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

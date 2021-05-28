@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="container">
 
+    <h2 class="center">Calibrations Due</h2>
+
+    <div class="container">
         <ul class="collapsible popout">
             {% for cal_due in cals_due %}
             <li>
@@ -15,7 +17,6 @@
             </li>
             {% endfor %}
         </ul>
-
     </div>
 
 {% endblock %}

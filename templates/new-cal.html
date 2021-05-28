@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="center">New Calibration</h2>
+<div class="container">
+    <div class="row">
+        <form class="col s12 m8 offset-m2">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="tag_id" type="text" name="tag_id" class="validate">
+                    <label for="tag_id">Instrument Tag ID:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="type" type="text" name="type" class="validate">
+                    <label for="type">Instrument Type:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="location" type="text" name="location" class="validate">
+                    <label for="location">Location:</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="date" type="text" name="date" class="datepicker validate">
+                    <label for="date">Due Date:</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
