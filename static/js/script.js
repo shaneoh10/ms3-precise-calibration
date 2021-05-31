@@ -1,6 +1,7 @@
 //   Materialize initialization code from https://materializecss.com/ 
   $(document).ready(function () {
       $('.sidenav').sidenav();
+      $('.modal').modal();
       $('.collapsible').collapsible();
       $('select').formSelect();
       $('.datepicker').datepicker({
@@ -24,5 +25,4 @@ $('#cal-container').click(function() {
             $(this).find('.chevron-icon').addClass('fa-chevron-right');
         }
     });
-});
-    
+});  
