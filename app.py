@@ -61,6 +61,13 @@ def edit_cal(cal_due_id):
     return render_template("edit-cal.html", cal_due=cal_due)
 
 
+@app.route("/remove_cal/<cal_due_id>")
+def remove_cal(cal_due_id):
+    mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
+    flash("Calibration removed")
+    return redirect(url_for("get_cals_due"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

@@ -17,7 +17,7 @@
                     <p>Location : {{ cal_due.location }}</p>
                     <p>Due date : {{ cal_due.due_date }}</p>
                     <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small">Edit Details</a>
-                    <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small red">Delete</a>
+                    <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}" class="btn-small red confirm-delete">Remove From List</a>
                 </div>
             </li>
             {% endfor %}
