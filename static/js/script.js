@@ -1,3 +1,4 @@
+//   Materialize initialization code from https://materializecss.com/ 
   $(document).ready(function () {
       $('.sidenav').sidenav();
       $('.collapsible').collapsible();
@@ -11,3 +12,8 @@
           }
       });
   });
+
+// Toggle chevron icon on collapsible headers 
+$(".collapsible-header").click(function(){
+  $(this).find('.chevron-icon').toggleClass("fa-chevron-right");
+});

@@ -9,7 +9,7 @@
             {% for cal_due in cals_due %}
             <li>
                 <div class="collapsible-header blue-grey lighten-4">
-                    <p>{{ cal_due.tag_id}} - Due: {{ cal_due.due_date }}</p>
+                    <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i><p>{{ cal_due.tag_id}} - Due: {{ cal_due.due_date }}</p>
                 </div>
                 <div class="collapsible-body">
                     <p>Tag Id : {{ cal_due.tag_id }}</p>
