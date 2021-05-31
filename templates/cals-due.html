@@ -7,7 +7,7 @@
     <div class="container">
         <ul class="collapsible popout">
             {% for cal_due in cals_due %}
-            <li>
+            <li class="chevron-list">
                 <div class="collapsible-header blue-grey lighten-4">
                     <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i><p>{{ cal_due.tag_id}} - Due: {{ cal_due.due_date }}</p>
                 </div>
@@ -17,6 +17,7 @@
                     <p>Location : {{ cal_due.location }}</p>
                     <p>Due date : {{ cal_due.due_date }}</p>
                     <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small">Edit Details</a>
+                    <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small red">Delete</a>
                 </div>
             </li>
             {% endfor %}

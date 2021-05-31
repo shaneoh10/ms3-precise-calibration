@@ -32,6 +32,8 @@ nav {
 
 #mobile-demo a {
     color: #E9ECEF;
+    font-size: 1.4rem;
+    margin-top: 1rem;
 }
 
 hr {
@@ -45,6 +47,18 @@ hr {
     text-transform: uppercase;
     margin-top: 3rem;
     font-size: 2.2rem;
+}
+
+.collapsible-header {
+    font-size: 1.2rem;
+}
+
+.collapsible-body {
+    font-size: 1.2rem;
+}
+
+.chevron-icon {
+    margin: auto 0;
 }
 
 
