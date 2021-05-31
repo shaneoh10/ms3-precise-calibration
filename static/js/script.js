@@ -14,6 +14,15 @@
   });
 
 // Toggle chevron icon on collapsible headers 
-$(".collapsible-header").click(function(){
-  $(this).find('.chevron-icon').toggleClass("fa-chevron-right");
+$(".collapsible-header").click(function() {
+    $(this).find('.chevron-icon').toggleClass("fa-chevron-right");
 });
+
+$('#cal-container').click(function() {
+    $('#cal-list > li').each(function(){
+        if (! $(this).hasClass('active')) {
+            $(this).find('.chevron-icon').addClass('fa-chevron-right');
+        }
+    });
+});
+    
