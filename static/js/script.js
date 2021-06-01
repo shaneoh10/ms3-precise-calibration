@@ -26,3 +26,8 @@ $('#cal-container').click(function() {
         }
     });
 });  
+
+// Flashed message modal pop up https://stackoverflow.com/questions/10233550/launch-bootstrap-modal-on-page-load
+$(window).on('load', function () {
+    $('#modal1').modal('open');
+});

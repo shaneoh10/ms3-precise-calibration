@@ -69,7 +69,13 @@
             {% if messages %}
                 {% for message in messages %}
                     <div class="row flashes center-align">
-                        <p class="green lighten-4 flash-message">{{ message }}</p>
+                        <!-- Modal for flashed messages https://materializecss.com/modals.html-->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>{{ message }}</h4>
+                                <a href="#!" class="modal-close btn-small modal-trigger">OK</a>
+                            </div>
+                        </div>
                     </div>
                 {% endfor %}
             {% endif %}
