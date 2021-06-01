@@ -38,13 +38,17 @@ def search_cals():
 @app.route("/cal_signoff/<cal_due_id>", methods=["GET", "POST"])
 def cal_signoff(cal_due_id):
     if request.method == "POST":
-        # cal = {
-        #     "tag_id": request.form.get("tag_id"),
-        #     "inst_type": request.form.get("inst_type"),
-        #     "location": request.form.get("location"),
-        #     "due_date": request.form.get("due_date")
-        # }
-        # # mongo.db.cals_due.update({"_id": ObjectId(cal_due_id)}, cal)
+        cal = {
+            "tag_id": request.form.get("tag_id"),
+            "inst_type": request.form.get("inst_type"),
+            "location": request.form.get("location"),
+            "due_date": request.form.get("due_date"),
+            "signoff_user": request.form.get("signoff_user"),
+            "signoff_date": request.form.get("signoff_date"),
+            "pass_or_fail": request.form.get("pass_or_fail")
+        }
+        mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
+        mongo.db.cals_complete.insert_one(cal)
         flash("Calibration Signed Off")
         return redirect(url_for("get_cals_due"))
 

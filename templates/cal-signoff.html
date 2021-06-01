@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="tag_id" type="text" name="tag_id" class="validate" minlength="5" maxlength="12"
-                            value="{{ cal_due.tag_id }}" disabled required>
+                            value="{{ cal_due.tag_id }}" required>
                         <label for="tag_id">Instrument Tag ID:</label>
                     </div>
                 </div>
@@ -19,35 +19,35 @@
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
                         <input id="inst_type" type="text" name="inst_type" class="validate" value="{{ cal_due.inst_type}}"
-                            disabled required>
+                            readonly required>
                         <label for="inst_type">Instrument Type:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="location" type="text" name="location" class="validate" minlength="5" maxlength="80"
-                            value="{{ cal_due.location }}" disabled required>
+                            value="{{ cal_due.location }}" readonly required>
                         <label for="location">Location:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="due_date" type="text" name="due_date" class="datepicker validate"
-                            value="{{ cal_due.due_date }}" disabled required>
+                            value="{{ cal_due.due_date }}" readonly required>
                         <label for="due_date">Due Date:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="signoff_user" type="text" name="signoff_user" class="validate" value="session.user"
-                            disabled required>
+                            readonly required>
                         <label for="signoff_user">Completed by:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="signoff_date" type="text" name="signoff_date" class="validate" value="datetime.now"
-                            disabled required>
+                            readonly required>
                         <label for="signoff_date">Date completed:</label>
                     </div>
                 </div>
