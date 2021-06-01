@@ -4,6 +4,7 @@
     width: 100%;
     transition: 0.3s;
     z-index: 20;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 #about h2,
@@ -35,7 +36,7 @@
 footer {
     color: #ADB5BD;
     background-color: #343A40;
-    padding: 1rem;
+    padding: 2rem 1rem;
 }
 
 .opaque-cover {
