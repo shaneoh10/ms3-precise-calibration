@@ -18,7 +18,8 @@
                 <div class="row">
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
-                        <input id="inst_type" type="text" name="inst_type" class="validate" value="{{ cal_due.inst_type}}" disabled required>
+                        <input id="inst_type" type="text" name="inst_type" class="validate" value="{{ cal_due.inst_type}}"
+                            disabled required>
                         <label for="inst_type">Instrument Type:</label>
                     </div>
                 </div>
@@ -38,16 +39,30 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="signoff_user" type="text" name="signoff_user" class="validate"
-                            value="session.user" disabled required>
+                        <input id="signoff_user" type="text" name="signoff_user" class="validate" value="session.user"
+                            disabled required>
                         <label for="signoff_user">Completed by:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="signoff_date" type="text" name="signoff_date" class="validate"
-                            value="datetime.now" disabled required>
+                        <input id="signoff_date" type="text" name="signoff_date" class="validate" value="datetime.now"
+                            disabled required>
                         <label for="signoff_date">Date completed:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <p class="center-align" id="pass-or-fail">
+                            <label>
+                                <input class="with-gap" name="pass_or_fail" value="PASS" type="radio" required/>
+                                <span>PASS</span>
+                            </label>
+                            <label>
+                                <input class="with-gap" name="pass_or_fail" value="FAIL" type="radio" required/>
+                                <span>FAIL</span>
+                            </label>
+                        </p>
                     </div>
                 </div>
                 <div class="row">
