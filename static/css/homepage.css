@@ -135,6 +135,14 @@ footer a:active {
     color: #F8F9FA;
 }
 
+#navbar li {
+    transition: 0.2s;
+}
+
+#navbar li a:hover {
+    background-color: rgba(107, 107, 107, 0.301);
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
