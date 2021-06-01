@@ -24,7 +24,14 @@ def home():
 
 @app.route("/get_cals_due")
 def get_cals_due():
-    cals_due = mongo.db.cals_due.find()
+    cals_due = list(mongo.db.cals_due.find())
+    return render_template("cals-due.html", cals_due=cals_due)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search_cals():
+    query = request.form.get("query")
+    cals_due = list(mongo.db.cals_due.find({"$text": {"$search": query}}))
     return render_template("cals-due.html", cals_due=cals_due)
 
 

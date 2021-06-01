@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="row card-panel">
-            <form action="#" method="POST" class="col s12">
+            <form action="{{ url_for('search_cals') }}" method="POST" class="col s12">
                 <div class="row center-align valign-wrapper">
                     <div class="input-field col s12 m8">
                         <i class="fas fa-search prefix"></i>
@@ -22,36 +22,39 @@
     </div>
 
     <div id="cal-container" class="container">
-        <ul id="cal-list" class="collapsible popout">
-            {% for cal_due in cals_due %}
-                <li class="chevron-list">
-                    <div class="collapsible-header blue-grey lighten-4">
-                        <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i>
-                        <p>{{ cal_due.tag_id }} - Due: {{ cal_due.due_date }}</p>
+        {% if cals_due|length > 0 %}
+            <ul id="cal-list" class="collapsible popout">
+                {% for cal_due in cals_due %}
+                    <li class="chevron-list">
+                        <div class="collapsible-header blue-grey lighten-4">
+                            <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i>
+                            <p>{{ cal_due.tag_id }} - Due: {{ cal_due.due_date }}</p>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>Tag Id : {{ cal_due.tag_id }}</p>
+                            <p>Type : {{ cal_due.inst_type }}</p>
+                            <p>Location : {{ cal_due.location }}</p>
+                            <p>Due date : {{ cal_due.due_date }}</p>
+                            <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small">Edit Details</a>
+                            <a class="modal-trigger btn-small red" href="#modal{{ cal_due.tag_id }}">Remove From List</a>
+                        </div>
+                    </li>
+                    
+                    <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
+                    <div id="modal{{ cal_due.tag_id }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="center-align">Are you sure you want to remove {{ cal_due.tag_id }} from the list?</h4>
+                        </div>
+                        <div class="center-align">
+                            <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}" class="center-align modal-close btn-small">Confirm</a>
+                            <a href="#" class="center-align modal-close btn-small">Cancel</a>
+                        </div>
                     </div>
-                    <div class="collapsible-body">
-                        <p>Tag Id : {{ cal_due.tag_id }}</p>
-                        <p>Type : {{ cal_due.inst_type }}</p>
-                        <p>Location : {{ cal_due.location }}</p>
-                        <p>Due date : {{ cal_due.due_date }}</p>
-                        <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small">Edit Details</a>
-                        <a class="modal-trigger btn-small red" href="#modal{{ cal_due.tag_id }}">Remove From List</a>
-                    </div>
-                </li>
-                
-                <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
-                <div id="modal{{ cal_due.tag_id }}" class="modal">
-                    <div class="modal-content">
-                        <h4 class="center-align">Are you sure you want to remove {{ cal_due.tag_id }} from the list?</h4>
-                    </div>
-                    <div class="center-align">
-                        <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}" class="center-align modal-close btn-small">Confirm</a>
-                        <a href="#" class="center-align modal-close btn-small">Cancel</a>
-                    </div>
-                </div>
-
-            {% endfor %}
-        </ul>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h4 class="center-align">No results found.</h4>
+        {% endif %}
     </div>
 
 {% endblock %}
