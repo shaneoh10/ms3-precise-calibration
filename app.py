@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, request, session, 
+    Flask, flash, request, session,
     redirect, url_for, render_template)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -69,7 +69,7 @@ def login():
             else:
                 flash("Incorrect Username or Password")
                 return redirect(request.referrer)
-        else: 
+        else:
             flash("Incorrect Username or Password")
             return redirect(request.referrer)
 
@@ -80,7 +80,7 @@ def login():
 def logout():
     session.clear()
     flash("You have been successfully logged out")
-    return redirect(url_for("home"))   
+    return redirect(url_for("home"))
 
 
 @app.route("/get_cals_due")
