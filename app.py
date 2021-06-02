@@ -4,6 +4,8 @@ from flask import (
     redirect, url_for, render_template)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import (
+    generate_password_hash, check_password_hash)
 if os.path.exists("env.py"):
     import env
 
@@ -24,6 +26,31 @@ def home():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Check if username exits on DB, if not create
+    new user and store in DB
+    """
+    if request.method == "POST":
+
+        username_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
+        if username_exists:
+            flash("Username taken, please try another.")
+            return redirect(url_for("register"))
+
+        new_user = {
+            "first_name": request.form.get("first_name").title(),
+            "last_name": request.form.get("last_name").title(),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "is_supervisor": False
+        }
+        mongo.db.users.insert_one(new_user)
+        first_name = request.form.get("first_name")
+        session["user"] = request.form.get("username").lower()
+        flash(f"Welcome {first_name}, you have successfully registered.")
+        return redirect(url_for('get_cals_due'))
+
     return render_template("register.html")
 
 
