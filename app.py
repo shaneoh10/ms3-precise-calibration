@@ -76,6 +76,13 @@ def login():
     return redirect(request.referrer)
 
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("You have been successfully logged out")
+    return redirect(url_for("home"))   
+
+
 @app.route("/get_cals_due")
 def get_cals_due():
     cals_due = list(mongo.db.cals_due.find())
