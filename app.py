@@ -22,6 +22,11 @@ def home():
     return render_template("home.html")
 
 
+@app.route("/register", methods=["GET", "POST"])
+def register():
+    return render_template("register.html")
+
+
 @app.route("/get_cals_due")
 def get_cals_due():
     cals_due = list(mongo.db.cals_due.find())
