@@ -54,6 +54,28 @@ def register():
     return render_template("register.html")
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username_exists = mongo.db.users.find_one(
+            {"username": request.form.get("username")})
+
+        if username_exists:
+            if check_password_hash(
+              username_exists["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for('get_cals_due'))
+            else:
+                flash("Incorrect Username or Password")
+                return redirect(request.referrer)
+        else: 
+            flash("Incorrect Username or Password")
+            return redirect(request.referrer)
+
+    return redirect(request.referrer)
+
+
 @app.route("/get_cals_due")
 def get_cals_due():
     cals_due = list(mongo.db.cals_due.find())
