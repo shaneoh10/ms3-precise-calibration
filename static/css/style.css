@@ -8,8 +8,6 @@ body {
     font-family: 'Fira Sans Condensed', sans-serif;
 }
 
-/********************** BASE TEMPLATE  */
-
 .nav-logo {
     margin-left: 1.4rem;
     font-family: 'Titillium Web', sans-serif;
@@ -60,6 +58,17 @@ hr {
     margin: auto 0;
 }
 
+.completed-cals {
+    width: 100%;
+}
+
+.completed-cals span {
+    float: right;
+}
+
+span.badge.new:after {
+    content: none !important;
+}
 
 /********************** MEDIA QUERIES  */
 
@@ -67,6 +76,10 @@ hr {
 
     .nav-logo {
         margin-left: 0.4rem;
+    }
+
+    .completed-cals span {
+        display: none;
     }
 
 }
