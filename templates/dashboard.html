@@ -33,7 +33,7 @@
                             <h4 class="center-align">Are you sure you want to close out {{ cal_complete.tag_id }} and remove it from the list?</h4>
                         </div>
                         <div class="center-align">
-                            <a href="#" class="center-align modal-close btn-small">Confirm</a>
+                            <a href="{{ url_for('remove_cal_complete', cal_complete_id=cal_complete._id) }}" class="center-align modal-close btn-small">Confirm</a>
                             <a href="#" class="center-align modal-close btn-small">Cancel</a>
                         </div>
                     </div>

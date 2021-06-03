@@ -163,6 +163,13 @@ def remove_cal(cal_due_id):
     return redirect(url_for("get_cals_due"))
 
 
+@app.route("/remove_cal_complete/<cal_complete_id>")
+def remove_cal_complete(cal_complete_id):
+    mongo.db.cals_complete.remove({"_id": ObjectId(cal_complete_id)})
+    flash("Calibration closed out and removed from list")
+    return redirect(url_for("get_cals_complete"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
