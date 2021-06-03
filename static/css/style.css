@@ -63,6 +63,9 @@ hr {
 }
 
 .completed-cals span {
+    width: 4rem;
+    letter-spacing: 1px;
+    font-size: 1rem !important;
     float: right;
 }
 

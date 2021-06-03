@@ -59,3 +59,7 @@ $('#cal-container').click(function() {
 $(window).on('load', function () {
     $('#modal1').modal('open');
 });
+
+// Change color of pass or fail span - https://api.jquery.com/contains-selector/
+$(".pass-or-fail:contains('FAIL')" ).css( "background-color", "#ff5947" );
+$(".pass-or-fail:contains('PASS')" ).css( "background-color", "#47c46c" );
