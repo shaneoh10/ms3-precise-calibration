@@ -89,6 +89,12 @@ def get_cals_due():
     return render_template("cals-due.html", cals_due=cals_due)
 
 
+@app.route("/get_cals_complete")
+def get_cals_complete():
+    cals_complete = list(mongo.db.cals_complete.find())
+    return render_template("dashboard.html", cals_complete=cals_complete)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search_cals():
     query = request.form.get("query")

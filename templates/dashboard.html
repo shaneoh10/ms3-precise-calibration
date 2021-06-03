@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2 class="center-align">Dashboard</h2>
+    <hr>
+
+    <div id="cal-container" class="container">
+        {% if cals_complete|length > 0 %}
+            <ul id="cal-list" class="collapsible popout">
+                {% for cal_complete in cals_complete %}
+                    <li class="chevron-list">
+                        <div class="collapsible-header blue-grey lighten-4">
+                            <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i>
+                            <p>{{ cal_complete.tag_id }} - Completed on: {{ cal_complete.signoff_date }} 
+                                <span class="badge new">{{ cal_complete.pass_or_fail }}</span>
+                            </p>
+                        </div>
+                        <div class="collapsible-body">
+                            <p>Tag Id : {{ cal_complete.tag_id }}</p>
+                            <p>Type : {{ cal_complete.inst_type }}</p>
+                            <p>Location : {{ cal_complete.location }}</p>
+                            <p>Due date : {{ cal_complete.due_date }}</p>
+                            <p>Result : {{ cal_complete.pass_or_fail }}</p>
+                            <p>Completed by : {{ cal_complete.signoff_user }}</p>
+                            <p>Date Completed : {{ cal_complete.signoff_date }}</p>
+                            <a class="modal-trigger btn-small red" href="#modal{{ cal_complete.tag_id }}">Close Out</a>
+                        </div>
+                    </li>
+                    
+                    <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
+                    <div id="modal{{ cal_complete.tag_id }}" class="modal">
+                        <div class="modal-content">
+                            <h4 class="center-align">Are you sure you want to close out {{ cal_complete.tag_id }} and remove it from the list?</h4>
+                        </div>
+                        <div class="center-align">
+                            <a href="#" class="center-align modal-close btn-small">Confirm</a>
+                            <a href="#" class="center-align modal-close btn-small">Cancel</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h4 class="center-align">No calibrations found.</h4>
+        {% endif %}
+    </div>
+
+{% endblock %}
