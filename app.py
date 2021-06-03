@@ -122,7 +122,8 @@ def cal_signoff(cal_due_id):
         return redirect(url_for("get_cals_due"))
 
     cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
-    return render_template("cal-signoff.html", cal_due=cal_due, date_today=date_today)
+    return render_template(
+        "cal-signoff.html", cal_due=cal_due, date_today=date_today)
 
 
 @app.route("/new_cal", methods=["GET", "POST"])

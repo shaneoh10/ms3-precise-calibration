@@ -4,6 +4,18 @@
     <h2 class="center-align">Dashboard</h2>
     <hr>
 
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s4"><a href="#test1" id="all"class="active popout">All</a></li>
+                    <li class="tab col s4"><a href="#test2" id="passed">Passed</a></li>
+                    <li class="tab col s4"><a href="#test3" id="failed">Failed</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div id="cal-container" class="container">
         {% if cals_complete|length > 0 %}
             <ul id="cal-list" class="collapsible popout">
@@ -11,7 +23,7 @@
                     <li class="chevron-list">
                         <div class="collapsible-header blue-grey lighten-4">
                             <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i>
-                            <p class="completed-cals">{{ cal_complete.tag_id }} - Completed on: {{ cal_complete.signoff_date }} 
+                            <p class="completed-cals">{{ cal_complete.tag_id }} - Completed on: {{ cal_complete.signoff_date }}
                                 <span class="badge new pass-or-fail">{{ cal_complete.pass_or_fail }}</span>
                             </p>
                         </div>
@@ -20,20 +32,22 @@
                             <p>Type : {{ cal_complete.inst_type }}</p>
                             <p>Location : {{ cal_complete.location }}</p>
                             <p>Due date : {{ cal_complete.due_date }}</p>
-                            <p>Result : {{ cal_complete.pass_or_fail }}</p>
+                            <p id="result">Result : {{ cal_complete.pass_or_fail }}</p>
                             <p>Completed by : {{ cal_complete.signoff_user }}</p>
                             <p>Date Completed : {{ cal_complete.signoff_date }}</p>
                             <a class="modal-trigger btn-small red" href="#modal{{ cal_complete.tag_id }}">Close Out</a>
                         </div>
                     </li>
-                    
+
                     <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
                     <div id="modal{{ cal_complete.tag_id }}" class="modal">
                         <div class="modal-content">
-                            <h4 class="center-align">Are you sure you want to close out {{ cal_complete.tag_id }} and remove it from the list?</h4>
+                            <h4 class="center-align">Are you sure you want to close out {{ cal_complete.tag_id }} and remove it from
+                                the list?</h4>
                         </div>
                         <div class="center-align">
-                            <a href="{{ url_for('remove_cal_complete', cal_complete_id=cal_complete._id) }}" class="center-align modal-close btn-small">Confirm</a>
+                            <a href="{{ url_for('remove_cal_complete', cal_complete_id=cal_complete._id) }}"
+                                class="center-align modal-close btn-small">Confirm</a>
                             <a href="#" class="center-align modal-close btn-small">Cancel</a>
                         </div>
                     </div>
