@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from flask import (
     Flask, flash, request, session,
     redirect, url_for, render_template)
@@ -104,6 +105,7 @@ def search_cals():
 
 @app.route("/cal_signoff/<cal_due_id>", methods=["GET", "POST"])
 def cal_signoff(cal_due_id):
+    date_today = datetime.now().strftime("%d %B %Y")
     if request.method == "POST":
         cal = {
             "tag_id": request.form.get("tag_id"),
@@ -111,7 +113,7 @@ def cal_signoff(cal_due_id):
             "location": request.form.get("location"),
             "due_date": request.form.get("due_date"),
             "signoff_user": request.form.get("signoff_user"),
-            "signoff_date": request.form.get("signoff_date"),
+            "signoff_date": date_today,
             "pass_or_fail": request.form.get("pass_or_fail")
         }
         mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
@@ -120,7 +122,7 @@ def cal_signoff(cal_due_id):
         return redirect(url_for("get_cals_due"))
 
     cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
-    return render_template("cal-signoff.html", cal_due=cal_due)
+    return render_template("cal-signoff.html", cal_due=cal_due, date_today=date_today)
 
 
 @app.route("/new_cal", methods=["GET", "POST"])
