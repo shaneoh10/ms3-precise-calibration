@@ -16,10 +16,10 @@
   // https://scrollrevealjs.org/guide/whats-new.html
 
   ScrollReveal().reveal('.about-card', {
-      duration: 3000,
+      duration: 2000,
       delay: 200
   });
   ScrollReveal().reveal('.contact-card', {
-      duration: 3000,
+      duration: 2000,
       delay: 200
   });
