@@ -181,6 +181,10 @@ def remove_cal(cal_due_id):
 @app.route("/remove_cal_complete/<cal_complete_id>")
 def remove_cal_complete(cal_complete_id):
     mongo.db.cals_complete.remove({"_id": ObjectId(cal_complete_id)})
+    mongo.db.cal_totals.update_one(
+            {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+            {"$inc": {"total_open": -1}})
+    flash("Calibration removed")
     flash("Calibration closed out and removed from list")
     return redirect(url_for("get_cals_complete"))
 
