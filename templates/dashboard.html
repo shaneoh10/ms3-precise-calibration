@@ -4,6 +4,35 @@
     <h2 class="center-align">Dashboard</h2>
     <hr>
 
+    {% for cal_total in cal_totals %}
+    <div class="row">
+        <div class="col s12 m3">
+            <div class="card-panel">
+                <h6>Open Cals</h6>
+                <p>{{ cal_total.total_open }}</p>
+            </div>
+        </div>
+    <div class="col s12 m3">
+            <div class="card-panel">
+                <h6>Passed Cals</h6>
+                <p>{{ cal_total.total_pass }}</p>
+            </div>
+        </div>
+    <div class="col s12 m3">
+            <div class="card-panel">
+                <h6>Failed Cals</h6>
+                <p>{{ cal_total.total_fail }}</p>
+            </div>
+        </div>
+    <div class="col s12 m3">
+            <div class="card-panel">
+                <h6>Due Cals</h6>
+                <p>{{ cal_total.total_due }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
     <div class="container">
         <div class="row">
             <div class="col s12">
