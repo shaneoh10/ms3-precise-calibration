@@ -73,6 +73,18 @@ span.badge.new:after {
     content: none !important;
 }
 
+.total-card {
+    margin: 3rem;;
+}
+
+.total-card p {
+    font-size: 2rem;;
+}
+
+.total-card span {
+    font-size: 0.9rem;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
@@ -85,4 +97,10 @@ span.badge.new:after {
         display: none;
     }
 
+}
+
+@media screen and (max-width: 992px) {
+    .total-card {
+        margin: 2rem 1rem;
+    }
 }
