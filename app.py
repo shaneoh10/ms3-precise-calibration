@@ -118,8 +118,12 @@ def cal_signoff(cal_due_id):
             "signoff_date": date_today,
             "pass_or_fail": request.form.get("pass_or_fail")
         }
+        cal_result = request.form.get("pass_or_fail").lower()
         mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
         mongo.db.cals_complete.insert_one(cal)
+        mongo.db.cal_totals.update_one(
+            {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+            {"$inc": {"total_due": -1, f"total_{cal_result}": 1}})
         flash("Calibration Signed Off")
         return redirect(url_for("get_cals_due"))
 
@@ -138,6 +142,9 @@ def new_cal():
             "due_date": request.form.get("due_date")
         }
         mongo.db.cals_due.insert_one(cal)
+        mongo.db.cal_totals.update_one(
+            {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+            {"$inc": {"total_due": 1, "total_open": 1}})
         flash("New Calibration Added")
         return redirect(url_for("get_cals_due"))
 
@@ -164,6 +171,9 @@ def edit_cal(cal_due_id):
 @app.route("/remove_cal/<cal_due_id>")
 def remove_cal(cal_due_id):
     mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
+    mongo.db.cal_totals.update_one(
+            {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+            {"$inc": {"total_due": -1, "total_open": -1}})
     flash("Calibration removed")
     return redirect(url_for("get_cals_due"))
 
@@ -179,3 +189,4 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+            
