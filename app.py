@@ -46,11 +46,14 @@ def register():
             "password": generate_password_hash(request.form.get("password")),
             "is_supervisor": False
         }
-        mongo.db.users.insert_one(new_user)
-        first_name = request.form.get("first_name")
-        flash(f"Welcome {first_name}, you have successfully registered.\
-              Log in to access the application")
-        return redirect(url_for('home'))
+        if request.form.get("password") == request.form.get("password-check"):
+            mongo.db.users.insert_one(new_user)
+            first_name = request.form.get("first_name")
+            flash(f"Welcome {first_name}, you have successfully registered.\
+                Log in to access the application")
+            return redirect(url_for('home'))
+        else:
+            flash("Passwords must match.")
 
     return render_template("register.html")
 
