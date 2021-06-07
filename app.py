@@ -48,9 +48,9 @@ def register():
         }
         mongo.db.users.insert_one(new_user)
         first_name = request.form.get("first_name")
-        session["user"] = request.form.get("username").lower()
-        flash(f"Welcome {first_name}, you have successfully registered.")
-        return redirect(url_for('get_cals_due'))
+        flash(f"Welcome {first_name}, you have successfully registered.\
+              Log in to access the application")
+        return redirect(url_for('home'))
 
     return render_template("register.html")
 
@@ -58,15 +58,21 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username_exists = mongo.db.users.find_one(
+        user_exists = mongo.db.users.find_one(
             {"username": request.form.get("username")})
 
-        if username_exists:
+        if user_exists:
             if check_password_hash(
-              username_exists["password"], request.form.get("password")):
+              user_exists["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
-                return redirect(url_for('get_cals_due'))
+                session["is_supervisor"] = user_exists["is_supervisor"]
+                session["name"] = ("{} {}").format(
+                    user_exists["first_name"], user_exists["last_name"])
+                flash("Welcome, {}".format(user_exists["first_name"]))
+                if session["is_supervisor"]:
+                    return redirect(url_for('get_cals_complete'))
+                else:
+                    return redirect(url_for('get_cals_due'))
             else:
                 flash("Incorrect Username or Password")
                 return redirect(request.referrer)
@@ -79,8 +85,9 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session.clear()
-    flash("You have been successfully logged out")
+    if session["user"]:
+        session.clear()
+        flash("You have been successfully logged out")
     return redirect(url_for("home"))
 
 
@@ -193,4 +200,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-            

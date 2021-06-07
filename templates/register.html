@@ -9,14 +9,12 @@
         <div class="row card-panel">
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('register') }}">
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s12 m6">
                         <input id="first_name" type="text" name="first_name" class="validate" minlength="2" maxlength="20" 
                             pattern="^[a-zA-ZÀ-ž\s]{2,20}$" required>
                         <label for="first_name">First Name:</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s12 m6">
                         <input id="last_name" type="text" name="last_name" class="validate" minlength="2" maxlength="20"
                             pattern="^[a-zA-ZÀ-ž\s]{2,20}$" required>
                         <label for="last_name">Last Name:</label>

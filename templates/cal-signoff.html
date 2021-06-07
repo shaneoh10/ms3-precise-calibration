@@ -39,7 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="signoff_user" type="text" name="signoff_user" class="validate" value="session.user"
+                        <input id="signoff_user" type="text" name="signoff_user" class="validate" value="{{ session['name'] }}"
                             readonly required>
                         <label for="signoff_user">Completed by:</label>
                     </div>
