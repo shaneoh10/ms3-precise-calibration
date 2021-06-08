@@ -118,3 +118,12 @@ $('#all').click(function () {
         instance.close(i);
     }
 });
+
+// Alert user if passwords not matching when registering account
+$("#password-check").keyup(function() {
+    if($("#reg-password").val() != $("#password-check").val()) {
+        $("#password-alert").html("Passwords do not match!");
+    } else {
+        $("#password-alert").html("");
+    } 
+});

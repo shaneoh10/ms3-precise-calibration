@@ -85,6 +85,9 @@ span.badge.new:after {
     font-size: 0.9rem;
 }
 
+#password-alert {
+    color: red;
+}
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {

@@ -34,7 +34,7 @@ def register():
     if request.method == "POST":
 
         username_exists = mongo.db.users.find_one(
-            {"username": request.form.get("username")})
+            {"username": request.form.get("reg-username")})
         if username_exists:
             flash("Username taken, please try another.")
             return redirect(url_for("register"))
@@ -42,11 +42,11 @@ def register():
         new_user = {
             "first_name": request.form.get("first_name").title(),
             "last_name": request.form.get("last_name").title(),
-            "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
+            "username": request.form.get("reg-username").lower(),
+            "password": generate_password_hash(request.form.get("reg-password")),
             "is_supervisor": False
         }
-        if request.form.get("password") == request.form.get("password-check"):
+        if request.form.get("reg-password") == request.form.get("password-check"):
             mongo.db.users.insert_one(new_user)
             first_name = request.form.get("first_name")
             flash(f"Welcome {first_name}, you have successfully registered.\
