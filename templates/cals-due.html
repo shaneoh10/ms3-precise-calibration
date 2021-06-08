@@ -7,15 +7,17 @@
     <div class="container">
         <div class="row card-panel">
             <form action="{{ url_for('search_cals') }}" method="POST" class="col s12">
-                <div class="row center-align valign-wrapper">
-                    <div class="input-field col s12 m8">
+                <div class="row center-align">
+                    <div class="input-field col s12">
                         <i class="fas fa-search prefix"></i>
                         <input type="text" name="query" id="query" minlength="3" class="validate" required>
                         <label for="query">Search</label> 
                     </div>
-                    <div class="col s12 m4">
-                        <button class="btn" type="submit"><i class="fas fa-search left"></i> Search</button>
-                        <a href="{{ url_for('get_cals_due') }}" class="btn red">Clear Search</a>
+                </div>
+                <div class="row center-align">
+                    <div class="col s12">
+                        <button class="btn center" type="submit"><i class="fas fa-search left"></i> Search</button>
+                        <a href="{{ url_for('get_cals_due') }}" class="btn red center">Clear Search</a>
                     </div>
                 </div>
             </form>

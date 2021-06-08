@@ -88,6 +88,24 @@ span.badge.new:after {
 #password-alert {
     color: red;
 }
+
+.btn {
+    margin: 0;
+}
+
+.btn-large {
+    width: 70%;
+}
+
+.tabs {
+    border-radius: 1rem;
+    background-color: rgba(238, 238, 238, 0.575);
+}
+
+.tabs li a {
+    color: #343A40 !important;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
@@ -98,6 +116,18 @@ span.badge.new:after {
 
     .completed-cals span {
         display: none;
+    }
+
+    .btn-large {
+        width: 70%;
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (min-width: 600px) {
+
+    .btn {
+        margin: 0 2rem;
     }
 
 }
