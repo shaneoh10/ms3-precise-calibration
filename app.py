@@ -22,14 +22,18 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
+    """
+    Renders the home page teplate
+    """
     return render_template("home.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
-    Check if username exits on DB, if not create
-    new user and store in DB
+    Allows users to register a new account. Checks if username
+    already exits on DB and if password inputs match. Creates a
+    new user and stores in DB.
     """
     if request.method == "POST":
 
@@ -43,10 +47,12 @@ def register():
             "first_name": request.form.get("first_name").title(),
             "last_name": request.form.get("last_name").title(),
             "username": request.form.get("reg-username").lower(),
-            "password": generate_password_hash(request.form.get("reg-password")),
+            "password": generate_password_hash(request.form.get(
+                "reg-password")),
             "is_supervisor": False
         }
-        if request.form.get("reg-password") == request.form.get("password-check"):
+        if request.form.get("reg-password") == request.form.get(
+                "password-check"):
             mongo.db.users.insert_one(new_user)
             first_name = request.form.get("first_name")
             flash(f"Welcome {first_name}, you have successfully registered.\
@@ -60,6 +66,11 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Allows users with a registered account to log in. Checks if username
+    exists on DB and if password is correct. If successful, adds user to
+    the current session and redirects to the application.
+    """
     if request.method == "POST":
         user_exists = mongo.db.users.find_one(
             {"username": request.form.get("username")})
@@ -88,6 +99,10 @@ def login():
 
 @app.route("/logout")
 def logout():
+    """
+    Clears the session cookies, logging out current user
+    and redirects user to home page.
+    """
     if session["user"]:
         session.clear()
         flash("You have been successfully logged out")
@@ -96,12 +111,23 @@ def logout():
 
 @app.route("/get_cals_due")
 def get_cals_due():
+    """
+    Queries the DB for all calibrations in the cals_due collection
+    and renders the cals_due template presenting the calibrations
+    to the user.
+    """
     cals_due = list(mongo.db.cals_due.find())
     return render_template("cals-due.html", cals_due=cals_due)
 
 
 @app.route("/get_cals_complete")
 def get_cals_complete():
+    """
+    Queries the DB for all calibrations in the cals_complete
+    collection and calibration totals in cal_totals collection
+    collection and renders the cals_complete template presenting the
+    data to the user.
+    """
     cals_complete = list(mongo.db.cals_complete.find())
     cal_totals = list(mongo.db.cal_totals.find())
     return render_template(
@@ -110,6 +136,9 @@ def get_cals_complete():
 
 @app.route("/search", methods=["GET", "POST"])
 def search_cals():
+    """
+    Allows user to search for calibrations due on the cals-due page.
+    """
     query = request.form.get("query")
     cals_due = list(mongo.db.cals_due.find({"$text": {"$search": query}}))
     return render_template("cals-due.html", cals_due=cals_due)
@@ -117,6 +146,13 @@ def search_cals():
 
 @app.route("/cal_signoff/<cal_due_id>", methods=["GET", "POST"])
 def cal_signoff(cal_due_id):
+    """
+    Allows users to sign off a calibration as completed. When the calibration
+    is signed off the current users name and the current date are attached with
+    the existing calibration information, along with a pass or fail as input by
+    the user. This is added to the DB as a complete calibration. The relevant
+    cal_totals are also incremented in the DB.
+    """
     date_today = datetime.now().strftime("%d %B %Y")
     if request.method == "POST":
         cal = {
@@ -144,6 +180,11 @@ def cal_signoff(cal_due_id):
 
 @app.route("/new_cal", methods=["GET", "POST"])
 def new_cal():
+    """
+    Allows the user to add a new calibration to the DB. This gets added
+    to the cals_due collection and the relevant cal totals are incremented
+    on the DB.
+    """
     if request.method == "POST":
         cal = {
             "tag_id": request.form.get("tag_id"),
@@ -163,6 +204,10 @@ def new_cal():
 
 @app.route("/edit_cal/<cal_due_id>", methods=["GET", "POST"])
 def edit_cal(cal_due_id):
+    """
+    Allows users to make changes to any of the calibrations that
+    are in the cals_due collection.
+    """
     if request.method == "POST":
         cal = {
             "tag_id": request.form.get("tag_id"),
@@ -180,6 +225,10 @@ def edit_cal(cal_due_id):
 
 @app.route("/remove_cal/<cal_due_id>")
 def remove_cal(cal_due_id):
+    """
+    Allows users to remove a calibration from the cals_due collection.
+    This also increments the relevant cal_totals in the DB.
+    """
     mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
@@ -190,6 +239,10 @@ def remove_cal(cal_due_id):
 
 @app.route("/remove_cal_complete/<cal_complete_id>")
 def remove_cal_complete(cal_complete_id):
+    """
+    Allows users to remove a calibration from the cals_complete collection.
+    This also increments the relevant cal_totals in the DB.
+    """
     mongo.db.cals_complete.remove({"_id": ObjectId(cal_complete_id)})
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
