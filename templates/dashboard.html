@@ -50,6 +50,9 @@
         </div>
     {% endfor %}
 
+    <h4 class="center-align">Completed Cals</h4>
+    <hr>
+
     <div class="container">
         <div class="row">
             <div class="col s12">
@@ -81,7 +84,7 @@
                             <p id="result">Result : {{ cal_complete.pass_or_fail }}</p>
                             <p>Completed by : {{ cal_complete.signoff_user }}</p>
                             <p>Date Completed : {{ cal_complete.signoff_date }}</p>
-                            <a class="modal-trigger btn-small red" href="#modal{{ cal_complete.tag_id }}">Close Out</a>
+                            <a class="modal-trigger btn-small red accent-2" href="#modal{{ cal_complete.tag_id }}">Close Out</a>
                         </div>
                     </li>
 
@@ -93,8 +96,8 @@
                         </div>
                         <div class="center-align">
                             <a href="{{ url_for('remove_cal_complete', cal_complete_id=cal_complete._id) }}"
-                                class="center-align modal-close btn-small">Confirm</a>
-                            <a href="#" class="center-align modal-close btn-small">Cancel</a>
+                                class="center-align modal-close btn light-blue accent-4">Confirm</a>
+                            <a href="#" class="center-align modal-close btn red accent-2">Cancel</a>
                         </div>
                     </div>
                 {% endfor %}
