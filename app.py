@@ -114,9 +114,17 @@ def get_cals_due():
     """
     Queries the DB for all calibrations in the cals_due collection
     and renders the cals_due template presenting the calibrations
-    to the user.
+    to the user. List of cals due is then sorted by due date in 
+    ascending order.
     """
     cals_due = list(mongo.db.cals_due.find())
+
+    # Converts due_date string to datetime object
+    def get_date(list):
+        date = list["due_date"]
+        return datetime.strptime(date, "%d %B %Y")
+
+    cals_due.sort(key=get_date)
     return render_template("cals-due.html", cals_due=cals_due)
 
 
