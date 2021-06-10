@@ -35,6 +35,8 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                    {% block navbar %}
+                    {% endblock %}
                     {% if session["is_supervisor"] %}
                         <li><a href="{{ url_for('get_cals_complete') }}">Dashboard</a></li>
                         <li><a href="{{ url_for('new_cal') }}">New Cal</a></li>
@@ -43,8 +45,6 @@
                         <li><a href="{{ url_for('get_cals_due') }}">Cals Due</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     {% else %}
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
                         <li><a href="{{ url_for('register') }}">Register</a></li>
                         <li><a href="#modal2" class="modal-trigger">Log In</a></li>
                     {% endif %}
@@ -58,6 +58,8 @@
                 <h4 class="center-align">Precise<span id="calibration">Calibration</span></h4>
             </li>
             <li><a href="{{ url_for('home') }}">Home</a></li>
+            {% block mobile_nav %}
+            {% endblock %}
             {% if session["is_supervisor"] %}
                 <li><a href="{{ url_for('get_cals_complete') }}">Dashboard</a></li>
                 <li><a href="{{ url_for('new_cal') }}">New Cal</a></li>
@@ -66,8 +68,6 @@
                 <li><a href="{{ url_for('get_cals_due') }}">Cals Due</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             {% else %}
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="{{ url_for('register') }}">Register</a></li>
                 <li><a href="#modal2" class="modal-trigger">Log In</a></li>
             {% endif %}
