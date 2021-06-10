@@ -137,6 +137,14 @@ span.badge.new:after {
     background-color: #ff5947 !important;
 }
 
+.pass-fail-toggle .active {
+    background-color: #cae3f8 !important;
+}
+
+.indicator {
+    border-bottom: 2px solid #51a6ec !important;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
