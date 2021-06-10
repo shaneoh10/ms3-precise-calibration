@@ -145,6 +145,11 @@ span.badge.new:after {
     border-bottom: 2px solid #51a6ec !important;
 }
 
+#pass-or-fail span {
+    margin: 0 2rem;
+    font-size: 1.2rem;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
