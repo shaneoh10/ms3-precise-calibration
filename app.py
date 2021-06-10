@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask import (
     Flask, flash, request, session,
     redirect, url_for, render_template)
@@ -115,17 +115,24 @@ def get_cals_due():
     Queries the DB for all calibrations in the cals_due collection
     and renders the cals_due template presenting the calibrations
     to the user. List of cals due is then sorted by due date in 
-    ascending order.
+    ascending order. If due date for calibration is 7 days or less
+    a warning will be displayed to the user.
     """
     cals_due = list(mongo.db.cals_due.find())
 
-    # Converts due_date string to datetime object
+    # Converts due_date list to datetime objects
     def get_date(list):
         date = list["due_date"]
         return datetime.strptime(date, "%d %B %Y")
 
+    # Converts individual due_dates to datetime objects
+    def get_date_string(string):
+        return datetime.strptime(string, "%d %B %Y")
+
+    today = datetime.now()
+    delta = timedelta(days=7)
     cals_due.sort(key=get_date)
-    return render_template("cals-due.html", cals_due=cals_due)
+    return render_template("cals-due.html", cals_due=cals_due, today=today, delta=delta, get_date_string=get_date_string)
 
 
 @app.route("/get_cals_complete")

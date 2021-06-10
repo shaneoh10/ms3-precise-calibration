@@ -127,6 +127,16 @@ span.badge.new:after {
     color: #343A40 !important;
 }
 
+.cal-due-head {
+    width: 100%;
+}
+
+.due-span {
+    float: right;
+    vertical-align: auto;
+    background-color: #ff5947 !important;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
