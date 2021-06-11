@@ -34,7 +34,7 @@
                             <p class="cal-due-head">
                                 {{ cal_due.tag_id }} - Due: {{ cal_due.due_date }}
                                 {% if get_date_string(cal_due.due_date) - today <= delta %}
-                                    <span class="badge new due-span">DUE SOON</span>
+                                    <span class="badge new due-span">DUE SOON</i></span>
                                 {% endif %}
                             </p>
                         </div>
@@ -45,7 +45,7 @@
                             <p>Due date : {{ cal_due.due_date }}</p>
                             {% if session["is_supervisor"] %}
                                 <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small light-blue accent-4">Edit Details</a>
-                                <a href="#modal{{ cal_due.tag_id }}" class="modal-trigger btn-small red accent-2" >Remove From List</a>
+                                <a href="#modal{{ cal_due.tag_id }}" class="modal-trigger btn-small red accent-2" >Delete</a>
                             {% else %}
                                 <a href="{{ url_for('cal_signoff', cal_due_id=cal_due._id) }}" class="btn-small light-blue accent-4">Sign Off</a>
                             {% endif %}
@@ -55,11 +55,12 @@
                     <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
                     <div id="modal{{ cal_due.tag_id }}" class="modal">
                         <div class="modal-content">
-                            <h4 class="center-align">Are you sure you want to remove {{ cal_due.tag_id }} from the list?</h4>
+                            <h4 class="center-align">Are you sure you want to delete {{ cal_due.tag_id }} from the list?</h4>
                         </div>
                         <div class="center-align">
-                            <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}" class="center-align modal-close btn-small">Confirm</a>
-                            <a href="#" class="center-align modal-close btn-small">Cancel</a>
+                            <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}"
+                                class="center-align modal-close btn-small light-blue accent 4">Confirm</a>
+                            <a href="#" class="center-align modal-close btn-small red accent-2">Cancel</a>
                         </div>
                     </div>
                 {% endfor %}

@@ -158,7 +158,8 @@ span.badge.new:after {
         margin-left: 0.4rem;
     }
 
-    .completed-cals span {
+    .completed-cals span,
+    .due-span {
         display: none;
     }
 
