@@ -16,8 +16,8 @@
                 </div>
                 <div class="row center-align">
                     <div class="col s12">
-                        <button class="btn center light-blue accent-4" type="submit"><i class="fas fa-search left"></i> Search</button>
-                        <a href="{{ url_for('get_cals_due') }}" class="btn red accent-2 center">Clear Search</a>
+                        <button class="btn center blue darken-2" type="submit"><i class="fas fa-search left"></i> Search</button>
+                        <a href="{{ url_for('get_cals_due') }}" class="btn red darken-2 center">Clear Search</a>
                     </div>
                 </div>
             </form>
@@ -44,10 +44,10 @@
                             <p>Location : {{ cal_due.location }}</p>
                             <p>Due date : {{ cal_due.due_date }}</p>
                             {% if session["is_supervisor"] %}
-                                <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small light-blue accent-4">Edit Details</a>
-                                <a href="#modal{{ cal_due.tag_id }}" class="modal-trigger btn-small red accent-2" >Delete</a>
+                                <a href="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}" class="btn-small blue darken-2">Edit Details</a>
+                                <a href="#modal{{ cal_due.tag_id }}" class="modal-trigger btn-small red darken-2" >Delete</a>
                             {% else %}
-                                <a href="{{ url_for('cal_signoff', cal_due_id=cal_due._id) }}" class="btn-small light-blue accent-4">Sign Off</a>
+                                <a href="{{ url_for('cal_signoff', cal_due_id=cal_due._id) }}" class="btn-small blue darken-2">Sign Off</a>
                             {% endif %}
                         </div>
                     </li>
@@ -59,8 +59,8 @@
                         </div>
                         <div class="center-align">
                             <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}"
-                                class="center-align modal-close btn-small light-blue accent 4">Confirm</a>
-                            <a href="#" class="center-align modal-close btn-small red accent-2">Cancel</a>
+                                class="center-align modal-close btn-small blue darken-2">Confirm</a>
+                            <a href="#" class="center-align modal-close btn-small red darken-2">Cancel</a>
                         </div>
                     </div>
                 {% endfor %}

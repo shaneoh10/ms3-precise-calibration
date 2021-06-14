@@ -132,9 +132,10 @@ span.badge.new:after {
 }
 
 .due-span {
+    font-weight: 500;
     float: right;
     vertical-align: auto;
-    background-color: #ff5947 !important;
+    background-color: #d32f2f  !important;
 }
 
 .pass-fail-toggle .active {
@@ -162,6 +163,18 @@ span.badge.new:after {
 
 label {
     color: #343A40 !important;
+}
+
+button,
+.btn,
+.btn-large,
+.btn-small,
+span.badge.new {
+    font-weight: 500;
+}
+
+.link {
+    color: #1976d2 !important;
 }
 
 /********************** MEDIA QUERIES  */
