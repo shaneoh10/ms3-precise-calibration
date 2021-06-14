@@ -18,12 +18,13 @@
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
                         <select id="inst_type" type="text" name="inst_type" class="validate" required>
-                            <option value="" disabled selected>Choose instrument type</option>
-                            <option value="Analyser">Analyser</option>
-                            <option value="Flow Transmitter">Flow Transmitter</option>
-                            <option value="Level Transmitter">Level Transmitter</option>
-                            <option value="Pressure Transmitter">Pressure Transmitter</option>
-                            <option value="Temperature Transmitter">Temperature Transmitter</option>
+                            <optgroup label="Choose Instrument Type">
+                                <option value="Analyser">Analyser</option>
+                                <option value="Flow Transmitter">Flow Transmitter</option>
+                                <option value="Level Transmitter">Level Transmitter</option>
+                                <option value="Pressure Transmitter">Pressure Transmitter</option>
+                                <option value="Temperature Transmitter">Temperature Transmitter</option>
+                            </optgroup>
                         </select>
                         <label>Instrument Type:</label>
                     </div>
@@ -43,7 +44,7 @@
                 </div>
                 <div class="row">
                     <div class="col s12 m4 offset-m2 center">
-                        <button type="submit" class="btn-large light-blue accent-4">Add Instrument</button>
+                        <button type="submit" class="btn-large light-blue accent-4">Upload</button>
                     </div>
                     <div class="col s12 m4 center">
                         <a href="{{ url_for('get_cals_due') }}" class="btn-large red accent-2">Cancel</a>

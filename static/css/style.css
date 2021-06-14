@@ -160,6 +160,10 @@ span.badge.new:after {
     margin: 3rem 0;
 }
 
+label {
+    color: #343A40 !important;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {

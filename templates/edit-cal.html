@@ -19,17 +19,18 @@
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
                         <select id="inst_type" type="text" name="inst_type" class="validate" required>
-                            {% if cal_due.inst_type %}
-                                <option value="{{ cal_due.inst_type}}" selected>{{ cal_due.inst_type }}</option>
-                            {% endif %}
-                            <option value="" disabled>Choose instrument type</option>
-                            <option value="Analyser">Analyser</option>
-                            <option value="Flow Transmitter">Flow Transmitter</option>
-                            <option value="Level Transmitter">Level Transmitter</option>
-                            <option value="Pressure Transmitter">Pressure Transmitter</option>
-                            <option value="Temperature Transmitter">Temperature Transmitter</option>
+                            <optgroup label="Choose Instrument Type">
+                                {% if cal_due.inst_type %}
+                                    <option value="{{ cal_due.inst_type}}" aria-labelledby="inst_type" selected>{{ cal_due.inst_type }}</option>
+                                {% endif %}
+                                <option value="Analyser">Analyser</option>
+                                <option value="Flow Transmitter">Flow Transmitter</option>
+                                <option value="Level Transmitter">Level Transmitter</option>
+                                <option value="Pressure Transmitter">Pressure Transmitter</option>
+                                <option value="Temperature Transmitter">Temperature Transmitter</option>
+                            </optgroup>
                         </select>
-                        <label>Instrument Type:</label>
+                        <label for="inst_type">Instrument Type:</label>
                     </div>
                 </div>
                 <div class="row">
