@@ -10,7 +10,7 @@
             <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('edit_cal', cal_due_id=cal_due._id) }}">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="tag_id" type="text" name="tag_id" class="validate" minlength="5" maxlength="12"
+                        <input id="tag_id" type="text" name="tag_id" class="validate" minlength="4" maxlength="20"
                             value="{{ cal_due.tag_id }}" required>
                         <label for="tag_id">Instrument Tag ID:</label>
                     </div>

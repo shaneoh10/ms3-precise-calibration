@@ -21,6 +21,50 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def check_input(dict):
+    """
+    Checks if user input contains a valid string before uploading to DB.
+    If user input is a string of blank spaces this function will return false.
+    This function is used inside any functions where a user input is to be
+    uploaded to the DB.
+    """
+    for value in dict.values():
+        if isinstance(value, str):
+            if not value.strip():
+                return False
+    return True
+
+
+def login_required(func):
+    """
+    Used as function decorator to only allow access to pages if
+    user is logged in.
+    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
+    """
+    @functools.wraps(func)
+    def secure_function(*args, **kwargs):
+        if "user" not in session:
+            flash("Log in to view this page")
+            return redirect(url_for("home"))
+        return func(*args, **kwargs)
+    return secure_function
+
+
+def supervisor_required(func):
+    """
+    Used as function decorator to only allow access to pages if
+    user is logged in with supervisor access.
+    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
+    """
+    @functools.wraps(func)
+    def secure_function(*args, **kwargs):
+        if "user" not in session or not session["is_supervisor"]:
+            flash("Log in as supervisor to view this page")
+            return redirect(url_for("home"))
+        return func(*args, **kwargs)
+    return secure_function
+
+
 @app.route("/")
 def home():
     """
@@ -52,15 +96,19 @@ def register():
                 "reg-password")),
             "is_supervisor": False
         }
-        if request.form.get("reg-password") == request.form.get(
-                "password-check"):
-            mongo.db.users.insert_one(new_user)
-            first_name = request.form.get("first_name")
-            flash(f"Welcome {first_name}, you have successfully registered.\
-                Log in to access the application")
-            return redirect(url_for('home'))
+        if check_input(new_user):
+            if request.form.get("reg-password") == request.form.get(
+                    "password-check"):
+                mongo.db.users.insert_one(new_user)
+                first_name = request.form.get("first_name")
+                flash(f"Welcome {first_name}, you have successfully registered.\
+                    Log in to access the application")
+                return redirect(url_for('home'))
+            else:
+                flash("Passwords must match.")
         else:
-            flash("Passwords must match.")
+            flash("Invalid input. Please complete all fields correctly.")
+            return redirect(url_for("register"))
 
     return render_template("register.html")
 
@@ -96,36 +144,6 @@ def login():
             return redirect(request.referrer)
 
     return redirect(request.referrer)
-
-
-def login_required(func):
-    """
-    Used as function decorator to only allow access to pages if
-    user is logged in.
-    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
-    """
-    @functools.wraps(func)
-    def secure_function(*args, **kwargs):
-        if "user" not in session:
-            flash("Log in to view this page")
-            return redirect(url_for("home"))
-        return func(*args, **kwargs)
-    return secure_function
-
-
-def supervisor_required(func):
-    """
-    Used as function decorator to only allow access to pages if
-    user is logged in with supervisor access.
-    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
-    """
-    @functools.wraps(func)
-    def secure_function(*args, **kwargs):
-        if "user" not in session or not session["is_supervisor"]:
-            flash("Log in as supervisor to view this page")
-            return redirect(url_for("home"))
-        return func(*args, **kwargs)
-    return secure_function
 
 
 @app.route("/logout")
@@ -262,12 +280,16 @@ def new_cal():
             "location": request.form.get("location"),
             "due_date": request.form.get("due_date")
         }
-        mongo.db.cals_due.insert_one(cal)
-        mongo.db.cal_totals.update_one(
-            {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
-            {"$inc": {"total_due": 1, "total_open": 1}})
-        flash("New Calibration Added")
-        return redirect(url_for("get_cals_due"))
+        if check_input(cal):
+            mongo.db.cals_due.insert_one(cal)
+            mongo.db.cal_totals.update_one(
+                {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+                {"$inc": {"total_due": 1, "total_open": 1}})
+            flash("New Calibration Added")
+            return redirect(url_for("get_cals_due"))
+        else:
+            flash("Invalid input. Please complete all fields correctly.")
+            return redirect(url_for("new_cal"))
 
     return render_template("new-cal.html")
 
@@ -286,9 +308,13 @@ def edit_cal(cal_due_id):
             "location": request.form.get("location"),
             "due_date": request.form.get("due_date")
         }
-        mongo.db.cals_due.update({"_id": ObjectId(cal_due_id)}, cal)
-        flash("Calibration Updated")
-        return redirect(url_for("get_cals_due"))
+        if check_input(cal):
+            mongo.db.cals_due.update({"_id": ObjectId(cal_due_id)}, cal)
+            flash("Calibration Updated")
+            return redirect(url_for("get_cals_due"))
+        else:
+            flash("Invalid input. Please complete all fields correctly.")
+            return redirect(url_for("get_cals_due"))
 
     cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
     return render_template("edit-cal.html", cal_due=cal_due)
