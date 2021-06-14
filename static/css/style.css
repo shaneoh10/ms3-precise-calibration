@@ -150,6 +150,16 @@ span.badge.new:after {
     font-size: 1.2rem;
 }
 
+.div-404 {
+    margin-top: 5rem;
+    padding: 2rem;
+}
+
+.div-404 p {
+    font-size: 1.2rem;
+    margin: 3rem 0;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {

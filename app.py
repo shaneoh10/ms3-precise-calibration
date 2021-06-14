@@ -73,6 +73,15 @@ def home():
     return render_template("home.html")
 
 
+# https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/
+@app.errorhandler(404)
+def page_not_found(e):
+    """
+    Renders 404 template if URL entered is not found.
+    """
+    return render_template('404.html'), 404
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """
