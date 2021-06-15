@@ -1,5 +1,7 @@
 # Website for Precise Calibration
 
+![Precise Calibration](assets/mockups/precise-calibration-mockup.png)
+
 ## Code Institute Milestone Project 3 : Data Centric Development
 
 Precise Calibration is a fictional company that provides calibration services for process instrumentation equipment. Some examples of this equipment would be pressure or temperature sensors in a pharmaceutical plant or oil refinery that require regular routine calibration for reasons of regulatory compliance. The website will feature a landing page with information about the company and its services with the goal of acquiring new customers. It will also contain a secure application for employees where they will be able to log in and keep track of work that is due for completionto ensure jobs are completed on time. This application will allow employees to make use of a database and CRUD operations to keep the calibration management system up to date.
