@@ -18,10 +18,11 @@
                 <div class="row">
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
-                        <select id="inst_type" type="text" name="inst_type" class="validate" required>
+                        <select id="inst_type" name="inst_type" class="validate" required>
+                            <option value="" disabled>&nbsp;</option>
                             <optgroup label="Choose Instrument Type">
                                 {% if cal_due.inst_type %}
-                                    <option value="{{ cal_due.inst_type}}" aria-labelledby="inst_type" selected>{{ cal_due.inst_type }}</option>
+                                    <option value="{{ cal_due.inst_type}}" selected>{{ cal_due.inst_type }}</option>
                                 {% endif %}
                                 <option value="Analyser">Analyser</option>
                                 <option value="Flow Transmitter">Flow Transmitter</option>

@@ -34,7 +34,7 @@
                             <p class="cal-due-head">
                                 {{ cal_due.tag_id }} - Due: {{ cal_due.due_date }}
                                 {% if get_date_string(cal_due.due_date) - today <= delta %}
-                                    <span class="badge new due-span">DUE SOON</i></span>
+                                    <span class="badge new due-span">DUE SOON</span>
                                 {% endif %}
                             </p>
                         </div>
@@ -53,16 +53,19 @@
                     </li>
                     
                     <!-- User Confirm Delete Modal https://materializecss.com/modals.html -->
-                    <div id="modal{{ cal_due.tag_id }}" class="modal">
-                        <div class="modal-content">
-                            <h4 class="center-align">Are you sure you want to delete {{ cal_due.tag_id }} from the list?</h4>
+                    <li>
+                        <div id="modal{{ cal_due.tag_id }}" class="modal">
+                            <div class="modal-content">
+                                <h4 class="center-align">Are you sure you want to delete {{ cal_due.tag_id }} from the
+                                    list?</h4>
+                            </div>
+                            <div class="center-align">
+                                <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}"
+                                    class="center-align modal-close btn-small blue darken-2">Confirm</a>
+                                <a href="#" class="center-align modal-close btn-small red darken-2">Cancel</a>
+                            </div>
                         </div>
-                        <div class="center-align">
-                            <a href="{{ url_for('remove_cal', cal_due_id=cal_due._id) }}"
-                                class="center-align modal-close btn-small blue darken-2">Confirm</a>
-                            <a href="#" class="center-align modal-close btn-small red darken-2">Cancel</a>
-                        </div>
-                    </div>
+                    </li>
                 {% endfor %}
             </ul>
         {% else %}
