@@ -35,34 +35,34 @@ def check_input(dict):
     return True
 
 
-def login_required(func):
-    """
-    Used as function decorator to only allow access to pages if
-    user is logged in.
-    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
-    """
-    @functools.wraps(func)
-    def secure_function(*args, **kwargs):
-        if "user" not in session:
-            flash("Log in to view this page")
-            return redirect(url_for("home"))
-        return func(*args, **kwargs)
-    return secure_function
+# def login_required(func):
+#     """
+#     Used as function decorator to only allow access to pages if
+#     user is logged in.
+#     https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
+#     """
+#     @functools.wraps(func)
+#     def secure_function(*args, **kwargs):
+#         if "user" not in session:
+#             flash("Log in to view this page")
+#             return redirect(url_for("home"))
+#         return func(*args, **kwargs)
+#     return secure_function
 
 
-def supervisor_required(func):
-    """
-    Used as function decorator to only allow access to pages if
-    user is logged in with supervisor access.
-    https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
-    """
-    @functools.wraps(func)
-    def secure_function(*args, **kwargs):
-        if "user" not in session or not session["is_supervisor"]:
-            flash("Log in as supervisor to view this page")
-            return redirect(url_for("home"))
-        return func(*args, **kwargs)
-    return secure_function
+# def supervisor_required(func):
+#     """
+#     Used as function decorator to only allow access to pages if
+#     user is logged in with supervisor access.
+#     https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/
+#     """
+#     @functools.wraps(func)
+#     def secure_function(*args, **kwargs):
+#         if "user" not in session or not session["is_supervisor"]:
+#             flash("Log in as supervisor to view this page")
+#             return redirect(url_for("home"))
+#         return func(*args, **kwargs)
+#     return secure_function
 
 
 @app.route("/")
@@ -156,7 +156,7 @@ def login():
 
 
 @app.route("/logout")
-@login_required
+# @login_required
 def logout():
     """
     Clears the session cookies, logging out current user
@@ -169,7 +169,7 @@ def logout():
 
 
 @app.route("/get_cals_due")
-@login_required
+# @login_required
 def get_cals_due():
     """
     Queries the DB for all calibrations in the cals_due collection
@@ -198,7 +198,7 @@ def get_cals_due():
 
 
 @app.route("/get_cals_complete")
-@supervisor_required
+# @supervisor_required
 def get_cals_complete():
     """
     Queries the DB for all calibrations in the cals_complete
@@ -213,7 +213,7 @@ def get_cals_complete():
 
 
 @app.route("/search", methods=["GET", "POST"])
-@login_required
+# @login_required
 def search_cals():
     """
     Allows user to search for calibrations due on the cals-due page.
@@ -240,7 +240,7 @@ def search_cals():
 
 
 @app.route("/cal_signoff/<cal_due_id>", methods=["GET", "POST"])
-@login_required
+# @login_required
 def cal_signoff(cal_due_id):
     """
     Allows users to sign off a calibration as completed. When the calibration
@@ -275,7 +275,7 @@ def cal_signoff(cal_due_id):
 
 
 @app.route("/new_cal", methods=["GET", "POST"])
-@supervisor_required
+# @supervisor_required
 def new_cal():
     """
     Allows the user to add a new calibration to the DB. This gets added
@@ -304,7 +304,7 @@ def new_cal():
 
 
 @app.route("/edit_cal/<cal_due_id>", methods=["GET", "POST"])
-@supervisor_required
+# @supervisor_required
 def edit_cal(cal_due_id):
     """
     Allows users to make changes to any of the calibrations that
@@ -330,7 +330,7 @@ def edit_cal(cal_due_id):
 
 
 @app.route("/remove_cal/<cal_due_id>")
-@supervisor_required
+# @supervisor_required
 def remove_cal(cal_due_id):
     """
     Allows users to remove a calibration from the cals_due collection.
@@ -345,7 +345,7 @@ def remove_cal(cal_due_id):
 
 
 @app.route("/remove_cal_complete/<cal_complete_id>")
-@supervisor_required
+# @supervisor_required
 def remove_cal_complete(cal_complete_id):
     """
     Allows users to remove a calibration from the cals_complete collection.
