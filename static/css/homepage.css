@@ -9,7 +9,7 @@
 
 #about h2,
 #contact h2 {
-    color: #495057;
+    color: #343A40;
     font-size: 3rem;
     margin-top: 0;
     padding-top: 2rem;
@@ -70,7 +70,7 @@ footer {
 .buttons a:active {
     color: #343A40;
     font-size: 1.1rem;
-    background-color: #ADB5BD;
+    background-color: #F8F9FA;
 }
 
 .about-text {
@@ -84,6 +84,10 @@ footer {
 .image-cards {
     padding: 2rem;
     margin-bottom: 0;
+}
+
+.image-cards img {
+    height: auto;
 }
 
 #contact p {

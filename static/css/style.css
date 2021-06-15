@@ -135,7 +135,7 @@ span.badge.new:after {
 .due-span {
     font-weight: 500;
     float: right;
-    vertical-align: auto;
+    vertical-align: middle;
     background-color: #d32f2f  !important;
 }
 
