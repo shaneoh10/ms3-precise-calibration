@@ -65,3 +65,16 @@ I have structured the website with:
 ### Skeleton 
 
 I designed wireframes for desktop, tablet and mobile using Balsamiq. These wireframes can be viewed [here.](https://github.com/shaneoh10/precise-calibration-ms3/tree/master/assets/wireframes)
+
+### Surface
+
+#### Colours
+I decided to go with a neutral color palette for the website to keep it looking professional and so as not to distract the users while they are reading through or inputting information. I used brighter green and red colours for the Pass/Fail indicators on the dashboard page so that they will stand out to the users. The main buttons are blue for positive interactions (Log in, upload etc.) and red for negative interactions (cancel, delete etc.). This makes it easier for users to distinguish between which type of action they are trying to take while using the application and it also provides a good contrast from the neutral colour palette of the rest of the website.
+- #F8F9FA - Cultured (off-white) 
+- #E9ECEF - Cultured (off-white)
+- #ADB5BD - Wild Blue Yonder
+- #495057 - Davys Grey
+- #343A40 - Gunmental
+
+#### Typography
+I chose 'Fira Sans Condensed' as the main font for the project as it is easy to ready and gives the website a competent and professional feel to it.
