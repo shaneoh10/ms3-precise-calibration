@@ -56,6 +56,7 @@ $(document).ready(function () {
     }
 });
 
+
 // Toggle chevron icon on collapsible headers 
 $(".collapsible-header").click(function () {
     $(this).find('.chevron-icon').toggleClass("fa-chevron-right");
@@ -69,16 +70,19 @@ $('#cal-container').click(function () {
     });
 });
 
+
 // Flashed message modal pop up https://stackoverflow.com/questions/10233550/launch-bootstrap-modal-on-page-load
 $(window).on('load', function () {
     $('#modal1').modal('open');
 });
 
+
 // Change color of pass or fail span - https://api.jquery.com/contains-selector/
 $(".pass-or-fail:contains('FAIL')").css("background-color", "#ff5947");
 $(".pass-or-fail:contains('PASS')").css("background-color", "#47c46c");
 
-// Display failed or passed calibrations on dashboard
+
+// Toggle between failed, passed or all calibrations on dashboard
 $('#failed').click(function () {
     $(".pass-or-fail:contains('PASS')").each(function () {
         $(this).parentsUntil('.chevron-list').css('display', 'none');
@@ -93,6 +97,7 @@ $('#failed').click(function () {
         instance.close(i);
     }
 });
+
 $('#passed').click(function () {
     $(".pass-or-fail:contains('FAIL')").each(function () {
         $(this).parentsUntil('.chevron-list').css('display', 'none');
@@ -107,6 +112,7 @@ $('#passed').click(function () {
         instance.close(i);
     }
 });
+
 $('#all').click(function () {
     $('.pass-or-fail').each(function () {
         $(this).parentsUntil('.chevron-list').show();
@@ -118,6 +124,7 @@ $('#all').click(function () {
         instance.close(i);
     }
 });
+
 
 // Alert user if passwords not matching when registering account
 $("#password-check").keyup(function() {

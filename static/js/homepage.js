@@ -10,8 +10,9 @@
           document.getElementById("navbar").style.top = "-80px";
       }
       prevScrollpos = currentScrollPos;
-  }
+  };
 
+  
   // Divs appear on scroll down
   // https://scrollrevealjs.org/guide/whats-new.html
 
