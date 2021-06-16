@@ -11,6 +11,8 @@ A link to the live website can be found [here.](https://precise-calibration-ms3.
 ## Table of Contents
 
 - [User Experience (UX)](#ux)
+- [Database Schema](#database-schema)
+- [Features](#features)
 
 ## UX
 
@@ -168,3 +170,14 @@ The database contains four collections:
 Each collection in the database is in some way linked to another collection. This image represents the relationships between each of the collections.
 
 ![Database Relationships](assets/images/db_relationships.jpg)
+
+## Features 
+
+The website features a main landing page which is accessible to all users and it has a calibration management application which is only accessible by logging in to the system. There are two access levels for users of the calibration management application which are standard level and supervisor level. Some features are only available to standard users (calibration signoff) and some features are only available to supervisor users (add new, delete, edit). All new accounts created are automatically set as standard user accounts and for security reasons can only be changed to supervisor level by modifying the user data directly on the database at MongoDB.com. This ensures that users can not create a supervisor level account and manipulate the stored data, which could be disastrous from a business point of view. The following credentials can be used to view the application with supervisor level permissions.
+- Username: supervisor
+- Password: supervisor
+
+### Across all pages: 
+- The navbar will be visible at the top of the page across all pages of the website. The navbar has the Precise Calibration logo on the left and there are multiple navigation items on the right-hand side: Home, About, Contact, Register, Log In, Log Out, New Cal, Cals Due, Dashboard. These navigation items are not always displayed on the navbar, they are dependant on whether a user is logged in or not, the user's access level and what page the user is on. The navbar collapses into a hamburger icon on smaller screens and the navbar pops out from the side of the screen.
+
+### Home Page: 
