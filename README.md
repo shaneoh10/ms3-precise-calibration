@@ -114,7 +114,7 @@ The database contains four collections:
 
 | MongoDB cals_due Collection |
 | -------- |
-|![cals_due](assets/images/cals_due.png)|
+|![Calibrations Due](assets/images/cals_due.png)|
 
 - This collection contains the data on calibrations that are due for completion
 
@@ -131,7 +131,7 @@ The database contains four collections:
 
 | MongoDB cals_complete Collection |
 | -------- |
-|![cals_complete](assets/images/cals_complete.png)|
+|![Calibrations Complete](assets/images/cals_complete.png)|
 
 - This collection contains the data on calibrations that have been signed off but are still on the database awaiting review to be closed out
 
@@ -151,7 +151,7 @@ The database contains four collections:
 
 | MongoDB cal_totals Collection |
 | -------- |
-|![cal_totals](assets/images/cal_totals.png)|
+|![Calibration Totals](assets/images/cal_totals.png)|
 
 - This collection contains the total number for calibrations stored on the database for various data points
 
@@ -162,3 +162,9 @@ The database contains four collections:
 |  `total_due`  | Int  | This is the total number of calibrations due that are on the system. This total is incremented as required when any changes are made to the DB, for example, deleting a calibration or signing off a calibration as complete |
 |  `total_pass`  | Int  | The cumulative total number of instruments that have passed a calibration. This number is incremented each time a calibration is signed off as a pass |
 |  `total_fail`  | Int  | The cumulative total number of instruments that have failed a calibration. This number is incremented each time a calibration is signed off as a fail |
+
+### Database Relationships
+
+Each collection in the database is in some way linked to another collection. This image represents the relationships between each of the collections.
+
+![Database Relationships](assets/images/db_relationships.jpg)
