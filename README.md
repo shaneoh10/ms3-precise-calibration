@@ -14,6 +14,7 @@ A link to the live website can be found [here.](https://precise-calibration-ms3.
 - [Database Schema](#database-schema)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Testing](#testing)
 
 ## UX
 
@@ -269,3 +270,8 @@ The website features a main landing page which is accessible to all users and it
 - [ScrollReveal](https://scrollrevealjs.org/) - Used for the divs appear on scroll down effect on the home page
 - [Font Awesome](https://fontawesome.com/) - Used to import icons
 - [Techsini](https://techsini.com/) - Used this website to generate the multi-device website mockup
+
+## Testing 
+
+Information on testing can be found in [TESTING.md](TESTING.md)
+
