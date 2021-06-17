@@ -13,6 +13,7 @@ A link to the live website can be found [here.](https://precise-calibration-ms3.
 - [User Experience (UX)](#ux)
 - [Database Schema](#database-schema)
 - [Features](#features)
+- [Technologies Used](#technologies-used)
 
 ## UX
 
@@ -243,3 +244,28 @@ The website features a main landing page which is accessible to all users and it
 - Below this there is a section where all the completed calibrations (calibrations that have been signed off by users) are presented in a list. Each calibration has an indicator displaying if it has passed or failed and a collapsible dropdown that contains all data as was uploaded to the database when the calibration was signed off.
 - At the bottom of the collapsible dropdown there is a button to close out the calibration. When the supervisor has reviewed and is satisfied with the information provided for each calibration, they can press this button to close out the calibration, removing it from the system. A prompt will appear to confirm the close out of the calibration and the data will then be deleted from the database.
 - Above the list of completed calibrations there is a toggler which allows users to choose between viewing all, passed or failed calibrations.
+
+
+## Technologies Used
+
+- HTML5 - This is the main language of the website content
+- CSS3 - This is used to style the web pages
+- Python 3 - The main application to run the website and use CRUD functionality is written in this language
+- JavaScript, jQuery - Used for visual effects, interactivity, DOM manipulation
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Microframework that provides tools, libraries, and technologies to build the web application
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Templating language used with Python and Flask. Allows quick building of pages and reduces code repitition.
+- [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) - Used with Python for security of the web application, password encryption
+- [MongoDB](https://www.mongodb.com/) - Used to store all the data for the web application
+- [PyMongo](https://pymongo.readthedocs.io/en/stable/) - Python module used to interact with MongoDB database.
+- [Materialize v1.0.0](https://materializecss.com/) - The project uses Materialize elements to help with structure and design
+- GitHub - Used to store the code, linked to Heroku for automatic deployment
+- Heroku - Platform used to deploy the web application
+- Gitpod - This is the IDE I used for the project
+- Git - Used within Gitpod as the version control system
+- Chrome Developer Tools - Used within Google Chrome to inspect the web pages. This is helpful when designing responsive features and troubleshooting bugs.
+- Balsamiq - I created the project wireframes with this software
+- Google Fonts - Used to import the fonts for the project
+- [Miro](https://miro.com/online-whiteboard/) - This is an online whiteboard I used to sketch the database relationships
+- [ScrollReveal](https://scrollrevealjs.org/) - Used for the divs appear on scroll down effect on the home page
+- [Font Awesome](https://fontawesome.com/) - Used to import icons
+- [Techsini](https://techsini.com/) - Used this website to generate the multi-device website mockup
