@@ -275,3 +275,80 @@ The website features a main landing page which is accessible to all users and it
 
 Information on testing can be found in [TESTING.md](TESTING.md)
 
+## Deployment 
+
+### Github Setup 
+
+I first set up the Precise Calibration repository on GitHub using the following steps:
+1. To set up the initial repository I used the [Code Institute Template.](https://github.com/Code-Institute-Org/gitpod-full-template) I clicked on "use this template" and entered precise-calibration-ms3 as the repository name and set it to public.
+2. In the new Precise Calibration repository I clicked on the GitPod button to open the project up as a new GitPod workspace.
+3. Throughout the project I saved all my code to Git by typing `git add .` into the terminal in the GitPod workspace.
+4. To commit the code to git I used the command  `git commit -m "<add comment here>" `
+5. Using Git I then used the command `git push` to push all the committed code to my GitHub repository at [https://github.com/shaneoh10/precise-calibration-ms3](https://github.com/shaneoh10/precise-calibration-ms3)
+
+#### Cloning the repository
+
+The project can be downloaded as a .zip file by clicking on the "Code" button in the project repository and then clicking "Download ZIP". 
+
+Alternatively the project can be cloned by entering `git clone git@github.com:shaneoh10/precise-calibration-ms3.git` in the terminal. 
+
+More information on cloning the project can be found [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+#### Running the project locally 
+
+Once the project has been cloned you can run it locally using the following steps:
+1. From the root directory enter the following prompt into the terminal to install the project requirements: 
+```
+pip3 install -r requirements.txt
+```
+2. Create an eny.py file to store the project configurations. Enter the following into the env.py file:
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "<YOUR_SECRET_KEY>")
+os.environ.setdefault("MONGO_URI", "<YOUR_MONGO_URI>")
+os.environ.setdefault("MONGO_DBNAME", "<YOUR_MONGO_DBNAME>")
+```
+3. Ensure that your `env.py` and `__pycache__` files are added to your .gitignore file as these contain sensitive information that should not be uploaded to the repository
+4. To enable debug mode go to the last line of the `app.py` file and change `debug=False` to `debug=True`
+5. The app can now be run locally using the following command in the terminal:
+```
+python3 app.py
+```
+
+### Heroku Deployment
+
+Before deploying to Heroku, ensure that you have both a `Procfile` and `requirements.txt` in your local repository or the application will fail to run.
+- You can use the following commands to ensure your `Procfile` and `requirements.txt` both contain the relevant setup info required by Heroku to run the app:
+```
+echo web: python app.py > Procfile
+```
+```
+pip freeze > requirements.txt
+```
+When this is complete you can log in to Heroku and create a new application with the following steps:
+1. Click on the new button and choose "Create New App"
+2. Choose a name for the application
+3. Choose the relevant region
+4. Click on the Create App button
+
+Now that the new app has been created you can connect it to your GitHub repository with the following steps:
+1. Click on the Deploy tab and then choose GitHub as the deployment method
+2. Enter your GitHub repository name and click search
+3. You can then click connect when the project has been found. Your project is now connected to your GitHub repository.
+4. To allow automatic deployment each time your GitHub repository is updated click on "Enable Automatic Deploys"
+
+The final step is to set up your environment variables the same as in your `env.py` file:
+1. Click on the settings tab to access the application settings
+2. Click "Reveal Config Vars"
+3. Enter the key value pairs exactly as they are in your env.py file without any quotation marks as follows:
+```
+IP: 0.0.0.0
+PORT: 5000
+SECRET_KEY: <YOUR_SECRET_KEY>
+MONGO_URI: <YOUR_MONGO_URI>
+MONGO_DBNAME: <YOUR_MONGO_DBNAME>
+```
+The project should now be deployed on Heroku and you can view it by clicking on the "Open app" button at the top of the page.
