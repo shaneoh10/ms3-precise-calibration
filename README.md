@@ -181,3 +181,65 @@ The website features a main landing page which is accessible to all users and it
 - The navbar will be visible at the top of the page across all pages of the website. The navbar has the Precise Calibration logo on the left and there are multiple navigation items on the right-hand side: Home, About, Contact, Register, Log In, Log Out, New Cal, Cals Due, Dashboard. These navigation items are not always displayed on the navbar, they are dependant on whether a user is logged in or not, the user's access level and what page the user is on. The navbar collapses into a hamburger icon on smaller screens and the navbar pops out from the side of the screen.
 
 ### Home Page: 
+
+#### Header
+- There is a high quality background image of an oil refinery, which makes it immediately apparent to users that the website has an industrial/manufacturing subject to it.
+- A main heading welcoming users to the website quickly draws user attention to this area of the page and a sub-heading provides a brief description of the services offered (Calibration Management services)
+- Below the headings are two buttons, About and Contact. These buttons encourage users to either browse the rest of the website to learn about the services on offer or contact the company directly for more information. The buttons change colour on hover to provide feedback to the user.
+- There is a smaller link to the employee login page below the two buttons, this link is smaller in size so as not to distract potential customers from the main content of the page.
+
+#### About Section 
+- There is a paragraph providing users with information about the company and the services they provide. This description is brief but it gives users enough information to understand what the company does and what sectors they work in. There is also information on the certificates that the company holds which are a requirement to work in some sectors.
+- Below the paraghraph are three cards with images giving a brief description of some of the sectors Precise Calibration work in. This makes the website look professional and the brighter colours of the images will attract the user's attention.
+
+#### Contact Section
+- This section has a background image of piping and instruments in a process plant, further reinforcing the subject of the website.
+- There are two cards with contact details for both of Precise Calibration's offices so that users can contact either office with any questions they have about the services on offer.
+
+#### Footer
+- Located at the bottom of the page, this contains social media links and a copyright notice.
+- The footer is only displayed on the home page as I believe it could serve as a distraction to employees while inputting data in the calibration management application and the information provided in the footer is not required while using the app.
+
+### Register Page:
+- This page contains a registration form where users will input thier first name, last name, username, password and repeat password to create a new account. When the user clicks the register button, the app checks if the username chosen is already in use. If the username is already in use a message explaining so will be flashed to the user, if not already in use the app will then check that the passwords entered are matching. There is an indicator below the repeat password input notifying users if the passwords do not match, but if users ignore this and try to submit the form a message will be flashed explaining that the passwords do not match. When all validation has passed, the user data from the form will be stored as a in the user collection in database and the user will be redirected to the home page where they will be prompted to log in.
+- Below the form is a link to the log in page for users that already have an account and may have accidentally clicked on the register page.
+- The cancel button will return users to the home page if they do not wish to register an account.
+
+### Log In Modal 
+- The log in modal contains a form that requests a username and password to log in to the application. When a user enters a username and password, the app will first check that the username exists and if so, it will then check that the password provided matches that which is stored on the database for that user. If the username does not exist or if the password is incorrect a flashed message will appear notifying the users that the username and/or password is incorrect. The same flashed message will appear for both instances. For security reasons we do not want to notify users if they have entered either one of the username or password correctly.
+- When the user successfully logs in, standard level users will be redirected to the cals due page and supervisor level users to the dahsboard and the user's details will be added to session cookies ( `session["user"] , session["name"] , session["is_supervisor"]` ). A flashed message will then appear, welcoming the user by name to the application.
+- Below the form is a link to the register page for users that do not have an account and are looking to register one so that they can log in.
+
+### Log Out function
+- The log out button is displayed in the navbar at all times when a user is logged in. When the user clicks the log out button, the application clears all session cookies, redirects the user back to the home page and displays a flashed message confirming that the user has successfully logged out.
+
+### New Cal Page
+- This page is only accessible with supervisor level access.
+- It contains a form which requests information about a new calibration that is to be added to the system. This information is typically provided to the company by customers and then the supervisor will add this information to the appliation so that employees can view the information on the jobs that are to be completed.
+- There is basic validation which requires that all fields are filled out correctly before the for will submit. Users will be prompted by each input if they are not filled out correctly or by a flashed message if the input passes the local input validation but not the application's validation. The new calibration is then uploaded to the database to the cals_due collection and the user is redirected to the calibrations due page where they will see a flashed message confirming that the calibration has successfully uploaded.
+
+### Cals Due Page
+- This page is only accessible by logging in with standard or supervisor access.
+- At the top of the page there is a search bar that is set up to return results all four indexes of the cals_due collection (tag_id, inst_type, location, due_date). The search will query the database collection and return results that match for any of the four indexes. If no results are found the page will display "No results found". The clear search button will reload the cals due page without any search query, displaying all calibrations again.
+- Below the search bar each instrument that is due for calibration from the cals_due collection is displayed in a list ordered by due_date ascending. Each item in the list contains all the data for each specific instrument stored in a collapsible card which drops down when the user clicks on it. On each card header a "due soon" warning will appear if the instrument is due for calibration in less than 7 days, to notify employees of the urgency of the task.
+- When the list items are dropped down, the user can view all the data stored for that instrument and there are buttons available for action depending on the level of access granted to the user. For standard users there is a "Signoff" button which will redirect the user to the calibration signoff page. For supervisor users there is a button to edit the information which will redirect the user to the edit page and a delete button which will raise a prompt to confirm deletion and then delete the instrument from the cals_due collection in the database.
+
+### Cal Signoff Page
+- This page is only accessible by logging in with standard access.
+- This page contains a form with all the information about the instrument that the employee is requesting to sign off as complete. This information is all added to the form automatically and is presented as readonly so that users can not modify any of the data, it is presented so that users can verify that they have chosen the correct instrument to sign off and that they are logged in as the correct user.
+- The user then has an option of two radio buttons "PASS" or "FAIL", from which they must choose one to record the result of the calibration they have completed.
+- When the user submits the form they are confirming that the work is complete. The data is then uploaded to the cals_complete collection and removed from the cals_due collection on the database.
+- After the form has been submitted successfully, the user is redirected back to the cals due page and a flashed message confirms that the calibration has been signed off.
+
+### Edit Cal Page
+- This page is only accessible with supervisor level access.
+- This page contains a form that is automatically filled with the data of the calibration of which they want to edit. The users can make any changes they want in the form as long as it passes the validation requirements.
+- When this form is submitted it updates the information for that specific calibration in the cals_due collection on the database.
+
+### Dashboard 
+- This page is only accessible with supervisor level access.
+- This purpose of this page is to present an overview of all the data recorded by the system to supervisors.
+- At the top of the page there are four cards, each displaying the total number of calibrations recorded for four different headings (Open Cals, Cals Due, Passed, Failed). As these numbers are recorded on the database they are automatically updated as required when any changes are made to the database.
+- Below this there is a section where all the completed calibrations (calibrations that have been signed off by users) are presented in a list. Each calibration has an indicator displaying if it has passed or failed and a collapsible dropdown that contains all data as was uploaded to the database when the calibration was signed off.
+- At the bottom of the collapsible dropdown there is a button to close out the calibration. When the supervisor has reviewed and is satisfied with the information provided for each calibration, they can press this button to close out the calibration, removing it from the system. A prompt will appear to confirm the close out of the calibration and the data will then be deleted from the database.
+- Above the list of completed calibrations there is a toggler which allows users to choose between viewing all, passed or failed calibrations.
