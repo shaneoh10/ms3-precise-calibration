@@ -352,3 +352,29 @@ MONGO_URI: <YOUR_MONGO_URI>
 MONGO_DBNAME: <YOUR_MONGO_DBNAME>
 ```
 The project should now be deployed on Heroku and you can view it by clicking on the "Open app" button at the top of the page.
+
+## Credits
+
+### Code:
+- I used multiple templates from [Materialize](https://materializecss.com/) throughout the project (navbar, cards etc.). These are referenced by comment in the code where they have been used.
+- I copied the code from [here](https://www.w3schools.com/howto/howto_js_navbar_hide_scroll.asp) to implement the navbar hide on scroll down and appear on scroll up effect on the home page.
+- I used the documentation and code from [ScrollReveal](https://scrollrevealjs.org/guide/whats-new.html) to set up the scroll reveals divs effect on the home page.
+- I based code on [this article](https://stackoverflow.com/questions/53063672/expand-all-and-collapse-all-collapsible-accordion-materialize-css/53064634) to automatically close all accordion dropdowns when toggling through all, passed and failed calibrations in the dashboard.
+- I used [this article](https://stackoverflow.com/questions/10233550/launch-bootstrap-modal-on-page-load) for assistance with getting the flashed messages to appear on a modal.
+- Throughout the project I referenced the documentation for [Flask](https://flask.palletsprojects.com/en/2.0.x/) and [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) to get the main application structure in place. I also referenced the Code Institute Task Manager project for guidance.
+- When implementing the security features I based the login required function decorators on code from [here](https://blog.teclado.com/protecting-endpoints-in-flask-apps-by-requiring-login/) and I also referenced the [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) documentation.
+- For assistance when working with the database I referenced the documentation from [PyMongo](https://pymongo.readthedocs.io/en/stable/) and referenced the Code Institute Task Manager project.
+- I referenced the Python documentation [here](https://docs.python.org/3/library/datetime.html) for help with using the Python datetime library.
+- [Stack Overflow](https://stackoverflow.com/) - There are many helpful posts on stack overflow that helped me with solving problems that I encountered during the development of the project.
+
+### Images:
+All the images used in the project were sourced from [Unsplash](https://unsplash.com/)
+- [Tasos Mansour @mantasos](https://unsplash.com/photos/NRfNe4ys_bM)
+- [Robin Sommer @robin_sommer](https://unsplash.com/photos/wnOJ83k8r4w)
+- [Bill Oxford @bill_oxford](https://unsplash.com/photos/tR0PPLuN6Pw)
+- [Lars Kielne @larskienle](https://unsplash.com/photos/tR0PPLuN6Pw)
+- [Crystal Kwok @spacexuan](https://unsplash.com/photos/mhUsz2ezlXQ)
+
+### Acknowledgements 
+
+I would like to thank my mentor Spencer Barriball for his help and guidance throughout the project. I would also like to thank Code Institute and the Slack community for providing me with knowledge, ideas and inspiration on to how to approach this project.
