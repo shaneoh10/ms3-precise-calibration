@@ -15,6 +15,8 @@ A link to the live website can be found [here.](https://precise-calibration-ms3.
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 ## UX
 
