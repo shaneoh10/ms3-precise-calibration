@@ -59,3 +59,73 @@ I ran all the JavaScript code through JSHint and I found a few errors which I wa
 - There are multiple warnings which remain present in the files about the use of `let` and `const` in JS version ES6 as follows: `let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).` I found an article on stack overflow [here](https://stackoverflow.com/questions/27441803/why-does-jshint-throw-a-warning-if-i-am-using-const) that advises by adding `/*jshint esversion: 6 */ ` at the top of the javascript files it would clear this error. I implemented this solution while testing in JSHint and the warnings were no longer present.
 
 ## Web Browser and Device Testing
+
+## Testing User Stories
+
+### Potential Customers 
+
+#### I want to be able to view the website on various devices (mobile, tablet, desktop)
+- The website has been tested on multiple devices and tested for responsiveness in Chrome developer tools so the users should be able to view the website on a variety of devices.
+
+#### I want to be able to instinctively navigate the website to efficiently find the information required
+- As the user scrolls through the home page, all information is displayed in a neat fashion and there are navigation buttons in the navbar and on the home page header to take users to their desired section.
+- The navbar has an effect where if the user scrolls down through the page, as soon as they begin to scroll back up the navbar will appear again to assist with navigation of the website.
+- I individually tested all of the buttons and navbar links to verify that users are redirected to the correct section/page.
+
+#### I want to be able to contact Precise Calibration with any queries about the services they are offering
+- There is a contact section in the home page which contact contains information for two of Precise Calibration's Offices.
+- In the contact section users can see an address, email, and phone number for each office so that they can easily contact or visit Precise Calibration's offices.
+
+#### I want to be easily directed to any social media channels to connect / network with Precise Calibration
+- In the footer at the bottom of the home page, there are social media icons which are cleary displayed to the user.
+- I tested each icon individually to verify that when clicked they open up the correct social media website in a new tab.
+
+### Employees
+
+#### I want to be able to easily register an account
+- On the home page there is a link in the navbar to go to the register page
+- The register page contains a form with all inputs clearly labelled so the user should have no difficulty in figuring out what information they are required to input.
+- There is input validation in the form so if users enter any information incorrectly they will be prompted to where the error exists and the form will not send until this is fixed.
+- If the username they have chosen is already in use by another user, a flashed message will appear notifying the user to choose another username.
+- I forced errors to test that all the prompts for invalid input are working and that the flashed message for the username already existing on the database is working correctly.
+- I then tested with valid information to ensure that new user accounts are registered correctly and stored on the database and all is working OK.
+
+#### I want to be able to log in and log out without difficulty
+- On the home page there is a link in the navbar and another link in the center of the page, both clearly labelled as log in links.
+- When the user clicks on a log in link, a modal appears on the page requesting a username and password to log in to the application.
+- The user enters their log in credentials. If the credentials are valid the user is redirected into the application, if invalid the user is notified via a flashed message that the credentials are incorrect.
+- At all times when a user is logged in, there will be a log out button available in the navbar. This button logs the user out, redirects them to the home page and notifies them that they have been successfully logged out.
+- I have tested the functionality of the log in modal with valid and invalid credentials to ensure it operates as intended.
+- I have also tested the log out functionality and all is working OK.
+
+#### I want to be able to search for specific instruments
+- On the cals due page there is a search bar at the top of the page where users can search the database of calibrations due
+- The search bar returns results on all four indexes for each item (Tag ID, Instrument Type, Location, Due Date). I tested the search functionality for each index and results were returned as intended.
+- If the search returns no results the user is notified that no results were found. I also tested this and it functions as intended.
+- There is a clear search button which refreshes the cals due page without a search query and this has also been tested and is working.
+
+![user-1](assets/images/testing-images/user-1.png)
+
+
+#### I want to be able to update the status of an instrument when calibration is complete (Pass / Fail)
+- For each instrument in the Cals Due page, when the user clicks on the instrument they are presented with all the information on that instrument and also a "Sign Off" button .
+- This sign off button will only be visible to users with standard access so as to reduce the possibility of fabriction of results. I tested this by logging in to a standard level account and a supervisor level account and it works OK.
+- When a user clicks the sign off button, they are redirected to the sign off page which contains a pre-filled read only form with the information of the instrument they want to sign off.
+- The user then chooses a radio button (PASS / FAIL) and submits the form to update the calibration status of the instrument.
+- I tested that the "Sign Off" button returns the correct instrument information and that the form submits the information to the database correctly and all is working OK.
+
+#### I want to be able to add new instruments to the calibration list as required
+- There is a "New Cal" link in the navbar that is only available while logged in at a supervisor level, which I have tested and verified.
+- This redirects the user to the New Cal page which contains a form with clearly labelled inputs for the user to input information on the new calibration they want to add to the list.
+- There is input validation in the form so if users enter any information incorrectly they will be prompted to where the error exists and the form will not send until this is fixed.
+- When the user fills out the form correctly and submits it, the information is uploaded to the database and the new calibration will appear in the list of calibrations on the cals due page.
+- I have tested the functionaliy of the form validation and interaction with the database and all is working OK.
+
+#### I want to be able to remove instruments from the application when calibration is complete and closed out
+- This function is only available with supervisor level access to reduce the risk of fabricated work, which I have verified is working OK.
+- On the dashboard page, there is a list of all calibrations that have been signed off as complete (Pass/Fail) and are awaiting review from a supervisor before being closed out.
+- The supervisor can click on each calibration individually and will be presented with all the information about the instrument and the completed calibration. There is also a button to "Close Out" the calibration available to the supervisor.
+- When the "Close Out" button is pressed, a modal appears asking the user to confirm the close out of the calibration they have chosen. If they confirm the close out, the calibration is removed from the database and the user is notified by a flashed message that it has been closed out.
+- I have tested and confirmed that all of the above functionality is working as intended.
+
+![user-2](assets/images/testing-images/user-2.png)
