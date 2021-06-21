@@ -18,6 +18,13 @@ I ran tests with lighthouse across all of the pages for both desktop and mobile.
 
 ![lighthouse-1](assets/images/testing-images/lighthouse-1.png)
 
+I was able to fix most of the errors across all pages but there is an error outstanding as seen in the image above: "Links do not have a discernible name". This error is present on pages that have the form with the dropdown selector (new cal, edit cal,cal signoff) and it brings the accessibility rating down from the green zone. Upon investigation I found that the element in which the error exists is not part of my own html but is loaded to the DOM by Materialize when the page loads, so I decided to take no further action as it does not interfere with the operation of the website.
+
+Besides this issue, all remaining pages have green lighthouse ratings across all parameters for mobile and desktop. 
+
+![lighthouse-2](assets/images/testing-images/lighthouse-2.png)
+
+
 ## Validation
 
 ### W3C Validator
