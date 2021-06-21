@@ -78,8 +78,8 @@ $(window).on('load', function () {
 
 
 // Change color of pass or fail span - https://api.jquery.com/contains-selector/
-$(".pass-or-fail:contains('FAIL')").css("background-color", "#ff5947");
-$(".pass-or-fail:contains('PASS')").css("background-color", "#47c46c");
+$(".pass-or-fail:contains('FAIL')").css("background-color", "#D41500");
+$(".pass-or-fail:contains('PASS')").css("background-color", "#00790F");
 
 
 // Toggle between failed, passed or all calibrations on dashboard
