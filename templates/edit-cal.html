@@ -19,7 +19,6 @@
                     <!-- Dropdown Select Instrument type from https://materializecss.com/select.html -->
                     <div class="input-field col s12">
                         <select id="inst_type" name="inst_type" class="validate" required>
-                            <option value="" disabled>&nbsp;</option>
                             <optgroup label="Choose Instrument Type">
                                 {% if cal_due.inst_type %}
                                     <option value="{{ cal_due.inst_type}}" selected>{{ cal_due.inst_type }}</option>
