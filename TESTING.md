@@ -129,3 +129,11 @@ I ran all the JavaScript code through JSHint and I found a few errors which I wa
 - I have tested and confirmed that all of the above functionality is working as intended.
 
 ![user-2](assets/images/testing-images/user-2.png)
+
+## Further Testing
+
+On the dashboard page there are four cards that display various calibration total values that are stored on the database. This is a feature that I decided to implement during the development of the project. On the database, these total values change any time a new calibration is added, deleted, signed off or closed out. 
+
+![further](assets/images/testing-images/further.png)
+
+To test that these values were incrementing as intended, I spent a bit of time adding, deleting, signing off and closing out calibrations. I kept track of the actions I was taking and compared it to the totals displayed on the website and this confirmed that the python functions were working as intended and the totals on the database were incrementing as expected. The "Open Cals" value is the total number of calibrations that are live on the system (cals due + cals complete). The "Cals Due" value is the total number of calibrations due. The "Passed" and "Failed" values are the cumulative total of calibrations that are signed off as passed or failed, these totals include calibrations that are still open on the system and also those that have been closed out and removed from the system.
