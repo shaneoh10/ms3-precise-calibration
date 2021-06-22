@@ -60,6 +60,36 @@ I ran all the JavaScript code through JSHint and I found a few errors which I wa
 
 ## Web Browser and Device Testing
 
+I tested the functionality of the website across a number of browsers and devices to verify that the website is responsive and the code is supported across different browsers.
+
+- Browsers tested:
+    - Google Chrome
+    - Brave
+    - Firefox
+    - Microsoft Edge
+
+- Devices Tested:
+    - Laptop
+    - Desktop
+    - Samsung Galaxy S20
+    - iPhone 12
+
+When carrying out the browser testing, I found that the flashed message modal was not popping up when it should be on all browsers. I used Google Chrome for the development of the project and this issue did not exist in this browser, so I only came across this issue while testing other browsers. After a bit of troubleshooting, I discovered that the problem was in the JavaScript code in the `script.js` file, that I was using to open up the modal when the page loaded: 
+```
+$(window).on('load', function () {
+    $('#modal1').modal('open');
+});
+```
+
+I changed the above code to the code below and the modal is now working across all browsers
+```
+$(document).ready(function () {
+    $('#modal1').modal('open');
+});
+```
+
+All website features are now working across all browsers and devices tested and the website is responsive on all devices. 
+
 ## Testing User Stories
 
 ### Potential Customers 
