@@ -35,6 +35,17 @@ def check_input(dict):
     return True
 
 
+def check_date(date):
+    """
+    Checks date to ensure it matches the format that is used on the DB
+    """
+    try:
+        datetime.strptime(date, "%d %B %Y")
+        return True
+    except ValueError:
+        return False
+
+
 def login_required(func):
     """
     Used as function decorator to only allow access to pages if
@@ -289,16 +300,20 @@ def new_cal():
             "location": request.form.get("location"),
             "due_date": request.form.get("due_date")
         }
-        if check_input(cal):
-            mongo.db.cals_due.insert_one(cal)
-            mongo.db.cal_totals.update_one(
-                {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
-                {"$inc": {"total_due": 1, "total_open": 1}})
-            flash("New Calibration Added.")
-            return redirect(url_for("get_cals_due"))
+        if check_date(request.form.get("due_date")):
+            if check_input(cal):
+                mongo.db.cals_due.insert_one(cal)
+                mongo.db.cal_totals.update_one(
+                    {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
+                    {"$inc": {"total_due": 1, "total_open": 1}})
+                flash("New Calibration Added.")
+                return redirect(url_for("get_cals_due"))
+            else:
+                flash("Invalid input. Please complete all fields correctly.")
+                return redirect(url_for("new_cal"))
         else:
-            flash("Invalid input. Please complete all fields correctly.")
-            return redirect(url_for("new_cal"))
+            flash("Invalid date format. Please use the date picker to choose a\
+                 due date.")
 
     return render_template("new-cal.html")
 
