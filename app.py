@@ -44,7 +44,7 @@ def login_required(func):
     @functools.wraps(func)
     def secure_function(*args, **kwargs):
         if "user" not in session:
-            flash("Log in to view this page")
+            flash("Log in to view this page.")
             return redirect(url_for("home"))
         return func(*args, **kwargs)
     return secure_function
@@ -59,7 +59,7 @@ def supervisor_required(func):
     @functools.wraps(func)
     def secure_function(*args, **kwargs):
         if "user" not in session or not session["is_supervisor"]:
-            flash("Log in as supervisor to view this page")
+            flash("Log in as a Supervisor to view this page.")
             return redirect(url_for("home"))
         return func(*args, **kwargs)
     return secure_function
@@ -111,7 +111,7 @@ def register():
                 mongo.db.users.insert_one(new_user)
                 first_name = request.form.get("first_name")
                 flash(f"Welcome {first_name}, you have successfully registered.\
-                    Log in to access the application")
+                    Log in to access the application.")
                 return redirect(url_for('home'))
             else:
                 flash("Passwords must match.")
@@ -140,16 +140,16 @@ def login():
                 session["is_supervisor"] = user_exists["is_supervisor"]
                 session["name"] = ("{} {}").format(
                     user_exists["first_name"], user_exists["last_name"])
-                flash("Welcome, {}".format(user_exists["first_name"]))
+                flash("Welcome, {}.".format(user_exists["first_name"]))
                 if session["is_supervisor"]:
                     return redirect(url_for('get_cals_complete'))
                 else:
                     return redirect(url_for('get_cals_due'))
             else:
-                flash("Incorrect Username or Password")
+                flash("Incorrect Username or Password.")
                 return redirect(request.referrer)
         else:
-            flash("Incorrect Username or Password")
+            flash("Incorrect Username or Password.")
             return redirect(request.referrer)
 
     return redirect(request.referrer)
@@ -164,7 +164,7 @@ def logout():
     """
     if session["user"]:
         session.clear()
-        flash("You have been successfully logged out")
+        flash("You have been successfully logged out.")
     return redirect(url_for("home"))
 
 
@@ -266,7 +266,7 @@ def cal_signoff(cal_due_id):
         mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_due": -1, f"total_{cal_result}": 1}})
-        flash("Calibration Signed Off")
+        flash("Calibration successfully Signed Off.")
         return redirect(url_for("get_cals_due"))
 
     cal_due = mongo.db.cals_due.find_one({"_id": ObjectId(cal_due_id)})
@@ -294,7 +294,7 @@ def new_cal():
             mongo.db.cal_totals.update_one(
                 {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
                 {"$inc": {"total_due": 1, "total_open": 1}})
-            flash("New Calibration Added")
+            flash("New Calibration Added.")
             return redirect(url_for("get_cals_due"))
         else:
             flash("Invalid input. Please complete all fields correctly.")
@@ -319,7 +319,7 @@ def edit_cal(cal_due_id):
         }
         if check_input(cal):
             mongo.db.cals_due.update({"_id": ObjectId(cal_due_id)}, cal)
-            flash("Calibration Updated")
+            flash("Calibration details successfully updated.")
             return redirect(url_for("get_cals_due"))
         else:
             flash("Invalid input. Please complete all fields correctly.")
@@ -340,7 +340,7 @@ def remove_cal(cal_due_id):
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_due": -1, "total_open": -1}})
-    flash("Calibration removed")
+    flash("Calibration successfully deleted.")
     return redirect(url_for("get_cals_due"))
 
 
@@ -355,8 +355,7 @@ def remove_cal_complete(cal_complete_id):
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_open": -1}})
-    flash("Calibration removed")
-    flash("Calibration closed out and removed from list")
+    flash("Calibration closed out and removed from the system.")
     return redirect(url_for("get_cals_complete"))
 
 
