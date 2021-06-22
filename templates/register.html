@@ -11,26 +11,26 @@
                 <div class="row">
                     <div class="input-field col s12 m6">
                         <input id="first_name" type="text" name="first_name" class="validate" minlength="2" maxlength="20" 
-                            pattern="^[a-zA-ZÀ-ž\s]{2,20}$" required>
+                            pattern="^[a-zA-ZÀ-ž\s']{2,20}$" required>
                         <label for="first_name">First Name:</label>
                     </div>
                     <div class="input-field col s12 m6">
                         <input id="last_name" type="text" name="last_name" class="validate" minlength="2" maxlength="20"
-                            pattern="^[a-zA-ZÀ-ž\s]{2,20}$" required>
+                            pattern="^[a-zA-Z'À-ž\s]{2,20}$" required>
                         <label for="last_name">Last Name:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="reg-username" type="text" name="reg-username" class="validate" minlength="6" 
-                            pattern="^[a-zA-Z0-9]{6-16}$" maxlength="16" required>
+                            pattern="[a-zA-Z0-9]{6,16}" maxlength="16" required>
                         <label for="reg-username">Username:</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="reg-password" type="password" name="reg-password" class="validate" 
-                            minlength="6" maxlength="16" pattern="^[a-zA-Z0-9]{6,16}$" required>
+                            minlength="6" maxlength="16" pattern="[a-zA-Z0-9]{6,16}" required>
                         <label for="reg-password">Password:</label>
                     </div>
                 </div>
