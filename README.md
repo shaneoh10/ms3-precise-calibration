@@ -183,6 +183,7 @@ The website features a main landing page which is accessible to all users and it
 
 ### Across all pages: 
 - The navbar will be visible at the top of the page across all pages of the website. The navbar has the Precise Calibration logo on the left and there are multiple navigation items on the right-hand side: Home, About, Contact, Register, Log In, Log Out, New Cal, Cals Due, Dashboard. These navigation items are not always displayed on the navbar, they are dependant on whether a user is logged in or not, the user's access level and what page the user is on. The navbar collapses into a hamburger icon on smaller screens and the navbar pops out from the side of the screen.
+- When a user is logged in, just below the navbar their name will be displayed along with a user-check icon to notify the user that they are logged in to their account. 
 
 ### Home Page: 
 
