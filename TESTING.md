@@ -81,7 +81,7 @@ $(window).on('load', function () {
 });
 ```
 
-I changed the above code to the code below and the modal is now working across all browsers
+I changed the above code to the code below and the flashed messages modal is now working across all browsers tested.
 ```
 $(document).ready(function () {
     $('#modal1').modal('open');

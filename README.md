@@ -323,7 +323,7 @@ python3 app.py
 ### Heroku Deployment
 
 Before deploying to Heroku, ensure that you have both a `Procfile` and `requirements.txt` in your local repository or the application will fail to run.
-- You can use the following commands to ensure your `Procfile` and `requirements.txt` both contain the relevant setup info required by Heroku to run the app:
+- You can enter the following commands in the terminal to ensure your `Procfile` and `requirements.txt` both contain the relevant setup info required by Heroku to run the app:
 ```
 echo web: python app.py > Procfile
 ```
