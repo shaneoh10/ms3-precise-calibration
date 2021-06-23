@@ -31,7 +31,8 @@
         <nav id="navbar">
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo nav-logo left">Precise<span
-                        id="calibration1">Calibration</span></a>
+                        id="calibration1">Calibration</span>
+                    </a>
                 <a href="#" id="mobile-icon" data-target="mobile-demo" class="sidenav-trigger right" aria-label="mobile-icon">
                     <i class="fas fa-bars"></i>
                 </a>
@@ -75,6 +76,10 @@
             {% endif %}
         </ul>
     </header>
+    {% if session["user"] %}
+        <div id="logged-in"><p><i class="fas fa-user-check"></i> {{ session["name"] }}</p></div>
+    {% endif %}
+
 
     <!-- Flash Messages https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/ -->
     <div id="flashed-messages">

@@ -24,9 +24,11 @@
                     <a class="waves-effect waves-light btn-large" href="#about">About</a>
                     <a class="waves-effect waves-light btn-large" href=#contact>Contact</a>
                 </div>
-                <div class="center">
-                    <a href="#modal2" class="modal-trigger">Employee Log In.</a>
-                </div>
+                {% if not session["user"] %}
+                    <div class="center">
+                        <a href="#modal2" class="modal-trigger">Employee Log In.</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>

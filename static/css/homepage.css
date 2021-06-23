@@ -147,6 +147,11 @@ footer a:active {
     background-color: rgba(107, 107, 107, 0.301);
 }
 
+#logged-in {
+    color: #fff;
+    position: absolute;
+    margin-top: 5rem;
+}
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
@@ -161,4 +166,19 @@ footer a:active {
         margin: 1rem 1.2rem;
     }
 
+    #logged-in {
+        margin-top: 4rem;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+    h1 {
+        font-size: 3.4rem;
+        padding-top: 2.2rem;
+    }
+    
+    #logged-in {
+        margin-top: 3rem;
+    }
 }

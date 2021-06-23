@@ -177,6 +177,16 @@ span.badge.new {
     color: #1976d2 !important;
 }
 
+#logged-in {
+    color: #000;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+}
+
+h2 {
+    margin-top: 1rem !important;
+}
+
 /********************** MEDIA QUERIES  */
 
 @media screen and (max-width: 600px) {
@@ -193,6 +203,10 @@ span.badge.new {
     .btn-large {
         width: 70%;
         margin: 1rem 0;
+    }
+
+    h2 {
+        margin-top: 1.8rem !important;
     }
 }
 
