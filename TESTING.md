@@ -18,7 +18,7 @@ I ran tests with lighthouse across all of the pages for both desktop and mobile.
 
 ![lighthouse-1](assets/images/testing-images/lighthouse-1.png)
 
-I was able to fix most of the errors across all pages but there is an error outstanding as seen in the image above: "Links do not have a discernible name". This error is present on pages that have the form with the dropdown selector (new cal, edit cal,cal signoff) and it brings the accessibility rating down from the green zone. Upon investigation I found that the element in which the error exists is not part of my own html but is loaded to the DOM by Materialize when the page loads, so I decided to take no further action as it does not interfere with the operation of the website.
+I was able to fix most of the errors across all pages but there is an error outstanding as seen in the image above: "Links do not have a discernible name". This error is present on pages that have the form with the dropdown selector (new cal, edit cal,cal signoff) and it brings the accessibility rating down from the green zone. Upon investigation, I found that the element in which the error exists is not part of my own html but is loaded to the DOM by Materialize when the page loads, so I decided to take no further action as it does not interfere with the operation of the website.
 
 Besides this issue, all remaining pages have green lighthouse ratings across all parameters for mobile and desktop. 
 
@@ -107,7 +107,7 @@ All website features are now working across all browsers and devices tested and 
 - In the contact section users can see an address, email, and phone number for each office so that they can easily contact or visit Precise Calibration's offices.
 
 #### I want to be easily directed to any social media channels to connect / network with Precise Calibration
-- In the footer at the bottom of the home page, there are social media icons which are cleary displayed to the user.
+- In the footer at the bottom of the home page, there are social media icons which are clearly displayed to the user.
 - I tested each icon individually to verify that when clicked they open up the correct social media website in a new tab.
 
 ### Employees
@@ -139,7 +139,7 @@ All website features are now working across all browsers and devices tested and 
 
 #### I want to be able to update the status of an instrument when calibration is complete (Pass / Fail)
 - For each instrument in the Cals Due page, when the user clicks on the instrument they are presented with all the information on that instrument and also a "Sign Off" button .
-- This sign off button will only be visible to users with standard access so as to reduce the possibility of fabriction of results. I tested this by logging in to a standard level account and a supervisor level account and it works OK.
+- This sign off button will only be visible to users with standard access so as to reduce the possibility of fabrication of results. I tested this by logging in to a standard level account and a supervisor level account and it works OK.
 - When a user clicks the sign off button, they are redirected to the sign off page which contains a pre-filled read only form with the information of the instrument they want to sign off.
 - The user then chooses a radio button (PASS / FAIL) and submits the form to update the calibration status of the instrument.
 - I tested that the "Sign Off" button returns the correct instrument information and that the form submits the information to the database correctly and all is working OK.
@@ -149,7 +149,7 @@ All website features are now working across all browsers and devices tested and 
 - This redirects the user to the New Cal page which contains a form with clearly labelled inputs for the user to input information on the new calibration they want to add to the list.
 - There is input validation in the form so if users enter any information incorrectly they will be prompted to where the error exists and the form will not send until this is fixed.
 - When the user fills out the form correctly and submits it, the information is uploaded to the database and the new calibration will appear in the list of calibrations on the cals due page.
-- I have tested the functionaliy of the form validation and interaction with the database and all is working OK.
+- I have tested the functionality of the form validation and interaction with the database and all is working OK.
 
 #### I want to be able to remove instruments from the application when calibration is complete and closed out
 - This function is only available with supervisor level access to reduce the risk of fabricated work, which I have verified is working OK.
@@ -172,4 +172,4 @@ To test that these values were incrementing as intended, I spent a bit of time a
 
 ### User Feedback
 
-I asked some of my friends and family to use the application and provide me with some feedback on their experience. I received positive feedback with regards to user friendliness and there were no reports of any bugs from users. A few of my friends who tried out the application are currently employed in calibration roles and they reported that it was easy for them to use and understand the application and that they would be happy to use this application in their current job. This positive feedback from real users is further evidence that the project goals have been met.
+I asked some of my friends and family to use the application and provide me with some feedback on their experience. I received positive feedback in regard to user-friendliness and there were no reports of any bugs from users. A few of my friends who tried out the application are currently employed in calibration roles, and they reported that it was easy for them to use and understand the application and that they would be happy to use this application in their current job. This positive feedback from real users is further evidence that the project goals have been met.

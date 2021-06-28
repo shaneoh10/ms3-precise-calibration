@@ -228,7 +228,8 @@ def get_dashboard():
 def search_cals():
     """
     Allows user to search for calibrations due on the cals-due page.
-    Results are returned in order of date_due ascending.
+    Results are returned in order of due_date ascending. If due date
+    for calibration is 7 days or less a warning will be displayed to the user.
     """
     query = request.form.get("query")
     cals_due = list(mongo.db.cals_due.find({"$text": {"$search": query}}))

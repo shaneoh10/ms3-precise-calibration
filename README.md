@@ -62,7 +62,7 @@ I also did some research on instrument calibration tracking software to get an i
 Both the landing page and the employee application are designed to be easy to navigate, with all information presented in a clean manner so that users will have a familiar and enjoyable experience.
 
 I have structured the website with:
-- A brand logo on the top left of the page and a navbar to the right whic is common to most websites
+- A brand logo on the top left of the page and a navbar to the right which is common to most websites
 - A collapsible navbar with a hamburger icon for smaller screen sizes
 - Navbar common to all pages - items displayed on navbar depending on access level (supervisor access)
 - Main content written with MaterializeCSS for structure and responsive design
@@ -195,7 +195,7 @@ The website features a main landing page which is accessible to all users and it
 
 #### About Section 
 - There is a paragraph providing users with information about the company and the services they provide. This description is brief but it gives users enough information to understand what the company does and what sectors they work in. There is also information on the certificates that the company holds which are a requirement to work in some sectors.
-- Below the paraghraph are three cards with images giving a brief description of some of the sectors Precise Calibration work in. This makes the website look professional and the brighter colours of the images will attract the user's attention.
+- Below the paragraph are three cards with images giving a brief description of some of the sectors Precise Calibration work in. This makes the website look professional and the brighter colours of the images will attract the user's attention.
 
 #### Contact Section
 - This section has a background image of piping and instruments in a process plant, further reinforcing the subject of the website.
@@ -212,7 +212,7 @@ The website features a main landing page which is accessible to all users and it
 
 ### Log In Modal 
 - The log in modal contains a form that requests a username and password to log in to the application. When a user enters a username and password, the app will first check that the username exists and if so, it will then check that the password provided matches that which is stored on the database for that user. If the username does not exist or if the password is incorrect a flashed message will appear notifying the users that the username and/or password is incorrect. The same flashed message will appear for both instances. For security reasons we do not want to notify users if they have entered either one of the username or password correctly.
-- When the user successfully logs in, standard level users will be redirected to the cals due page and supervisor level users to the dahsboard and the user's details will be added to session cookies ( `session["user"] , session["name"] , session["is_supervisor"]` ). A flashed message will then appear, welcoming the user by name to the application.
+- When the user successfully logs in, standard level users will be redirected to the cals due page and supervisor level users to the dashboard and the user's details will be added to session cookies ( `session["user"] , session["name"] , session["is_supervisor"]` ). A flashed message will then appear, welcoming the user by name to the application.
 - Below the form is a link to the register page for users that do not have an account and are looking to register one so that they can log in.
 
 ### Log Out function
@@ -220,7 +220,7 @@ The website features a main landing page which is accessible to all users and it
 
 ### New Cal Page
 - This page is only accessible with supervisor level access.
-- It contains a form which requests information about a new calibration that is to be added to the system. This information is typically provided to the company by customers and then the supervisor will add this information to the appliation so that employees can view the information on the jobs that are to be completed.
+- It contains a form which requests information about a new calibration that is to be added to the system. This information is typically provided to the company by customers and then the supervisor will add this information to the application so that employees can view the information on the jobs that are to be completed.
 - There is basic validation which requires that all fields are filled out correctly before the for will submit. Users will be prompted by each input if they are not filled out correctly or by a flashed message if the input passes the local input validation but not the application's validation. The new calibration is then uploaded to the database to the cals_due collection and the user is redirected to the calibrations due page where they will see a flashed message confirming that the calibration has successfully uploaded.
 
 ### Cals Due Page
@@ -257,7 +257,7 @@ The website features a main landing page which is accessible to all users and it
 - Python 3 - The main application to run the website and use CRUD functionality is written in this language
 - JavaScript, jQuery - Used for visual effects, interactivity, DOM manipulation
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/) - Microframework that provides tools, libraries, and technologies to build the web application
-- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Templating language used with Python and Flask. Allows quick building of pages and reduces code repitition.
+- [Jinja](https://jinja.palletsprojects.com/en/2.11.x/) - Templating language used with Python and Flask. Allows quick building of pages and reduces code repetition.
 - [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) - Used with Python for security of the web application, password encryption
 - [MongoDB](https://www.mongodb.com/) - Used to store all the data for the web application
 - [PyMongo](https://pymongo.readthedocs.io/en/stable/) - Python module used to interact with MongoDB database.
