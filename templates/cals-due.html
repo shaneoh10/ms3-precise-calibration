@@ -33,7 +33,9 @@
                             <i class="chevron-icon fas fa-chevron-down fa-chevron-right left"></i>
                             <p class="cal-due-head">
                                 {{ cal_due.tag_id }} - Due: {{ cal_due.due_date }}
-                                {% if get_date_string(cal_due.due_date) - today <= delta %}
+                                {% if get_date_string(cal_due.due_date) - today < delta - delta %}
+                                    <span class="badge new due-span">OVERDUE</span>
+                                {% elif get_date_string(cal_due.due_date) - today <= delta %}
                                     <span class="badge new due-span">DUE SOON</span>
                                 {% endif %}
                             </p>
