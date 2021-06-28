@@ -41,7 +41,7 @@
                     {% block navbar %}
                     {% endblock %}
                     {% if session["is_supervisor"] %}
-                        <li><a href="{{ url_for('get_cals_complete') }}">Dashboard</a></li>
+                        <li><a href="{{ url_for('get_dashboard') }}">Dashboard</a></li>
                         <li><a href="{{ url_for('new_cal') }}">New Cal</a></li>
                     {% endif %}
                     {% if session["user"] %}
@@ -64,7 +64,7 @@
             {% block mobile_nav %}
             {% endblock %}
             {% if session["is_supervisor"] %}
-                <li><a href="{{ url_for('get_cals_complete') }}">Dashboard</a></li>
+                <li><a href="{{ url_for('get_dashboard') }}">Dashboard</a></li>
                 <li><a href="{{ url_for('new_cal') }}">New Cal</a></li>
             {% endif %}
             {% if session["user"] %}

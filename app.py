@@ -153,7 +153,7 @@ def login():
                     user_exists["first_name"], user_exists["last_name"])
                 flash("Welcome, {}.".format(user_exists["first_name"]))
                 if session["is_supervisor"]:
-                    return redirect(url_for('get_cals_complete'))
+                    return redirect(url_for('get_dashboard'))
                 else:
                     return redirect(url_for('get_cals_due'))
             else:
@@ -208,13 +208,13 @@ def get_cals_due():
         delta=delta, get_date_string=get_date_string)
 
 
-@app.route("/get_cals_complete")
+@app.route("/get_dashboard")
 @supervisor_required
-def get_cals_complete():
+def get_dashboard():
     """
     Queries the DB for all calibrations in the cals_complete
     collection and calibration totals in cal_totals collection
-    collection and renders the cals_complete template presenting the
+    collection and renders the dashboard template presenting the
     data to the user.
     """
     cals_complete = list(mongo.db.cals_complete.find())
@@ -371,7 +371,7 @@ def remove_cal_complete(cal_complete_id):
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_open": -1}})
     flash("Calibration closed out and removed from the system.")
-    return redirect(url_for("get_cals_complete"))
+    return redirect(url_for("get_dashboard"))
 
 
 if __name__ == "__main__":
