@@ -273,7 +273,7 @@ def cal_signoff(cal_due_id):
             "pass_or_fail": request.form.get("pass_or_fail")
         }
         cal_result = request.form.get("pass_or_fail").lower()
-        mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
+        mongo.db.cals_due.delete_one({"_id": ObjectId(cal_due_id)})
         mongo.db.cals_complete.insert_one(cal)
         mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
@@ -352,7 +352,7 @@ def remove_cal(cal_due_id):
     Allows users to remove a calibration from the cals_due collection.
     This also increments the relevant cal_totals in the DB.
     """
-    mongo.db.cals_due.remove({"_id": ObjectId(cal_due_id)})
+    mongo.db.cals_due.delete_one({"_id": ObjectId(cal_due_id)})
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_due": -1, "total_open": -1}})
@@ -367,7 +367,7 @@ def remove_cal_complete(cal_complete_id):
     Allows users to remove a calibration from the cals_complete collection.
     This also increments the relevant cal_totals in the DB.
     """
-    mongo.db.cals_complete.remove({"_id": ObjectId(cal_complete_id)})
+    mongo.db.cals_complete.delete_one({"_id": ObjectId(cal_complete_id)})
     mongo.db.cal_totals.update_one(
             {"_id": ObjectId("60b9de44da37adc68f38a3f7")},
             {"$inc": {"total_open": -1}})
