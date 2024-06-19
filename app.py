@@ -79,7 +79,7 @@ def supervisor_required(func):
 @app.route("/")
 def home():
     """
-    Renders the home page teplate
+    Renders the home page template
     """
     return render_template("home.html")
 
